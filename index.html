@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>概念経 — The Sūtra of Concepts</title>
+<meta name="description" content="世界は、もともと切れ目のない、ひとつだった。誰かが最初の線を引いたとき、はじめて「意味」が生まれた。">
+<meta name="author" content="田中 志">
+<meta property="og:title" content="概念経">
+<meta property="og:description" content="はじめに一本の線を引き、これを書きとめた者が、いた。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#08070a;
+  --surface:#0f0e13;
+  --text:#e8e4dc;
+  --sub:#7a7468;
+  --sub2:#a09890;
+  --accent:#b8965a;
+  --accent2:#d4b07a;
+  --border:rgba(255,255,255,.06);
+  --max:680px;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Serif JP',serif;
+  font-size:17px;
+  line-height:2;
+  font-weight:300;
+}
+
+/* ── Nav ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;
+  height:52px;
+  background:rgba(8,7,10,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;z-index:100;
+}
+.nav-title{font-family:'Noto Sans JP',sans-serif;font-size:15px;font-weight:700;letter-spacing:.12em;color:var(--accent);}
+.nav-links{display:flex;gap:20px;}
+.nav-links a{font-family:'Noto Sans JP',sans-serif;font-size:12px;color:var(--sub2);text-decoration:none;letter-spacing:.08em;transition:color .15s;}
+.nav-links a:hover{color:var(--text);}
+
+/* ── Hero ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  padding:80px 24px 60px;
+  position:relative;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 40%, rgba(184,150,90,.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-en{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:11px;font-weight:400;letter-spacing:.25em;
+  color:var(--sub);text-transform:uppercase;margin-bottom:20px;
+}
+.hero-title{
+  font-size:clamp(52px,10vw,96px);
+  font-weight:700;letter-spacing:.08em;
+  background:linear-gradient(160deg,var(--accent2),var(--accent),#8a6830);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1.1;margin-bottom:20px;
+}
+.hero-sub{
+  font-size:clamp(13px,2vw,15px);
+  color:var(--sub2);line-height:2.2;
+  max-width:480px;margin:0 auto 40px;
+}
+.hero-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--accent),transparent);margin:0 auto;}
+
+/* ── Content ── */
+.content{max-width:var(--max);margin:0 auto;padding:0 24px 120px;}
+
+.preface{
+  text-align:center;
+  padding:80px 0 60px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:72px;
+}
+.preface-quote{
+  font-size:14px;color:var(--sub2);line-height:2.4;
+  font-style:italic;
+  max-width:400px;margin:0 auto;
+}
+
+/* Chapters */
+.chapter{margin-bottom:80px;scroll-margin-top:72px;}
+.chapter-num{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.2em;
+  color:var(--accent);text-transform:uppercase;
+  margin-bottom:12px;
+}
+.chapter-title{
+  font-size:clamp(20px,4vw,26px);font-weight:700;
+  letter-spacing:.05em;color:var(--text);
+  margin-bottom:32px;line-height:1.4;
+}
+.chapter-title .sub{
+  display:block;font-size:14px;font-weight:300;
+  color:var(--sub2);letter-spacing:.08em;margin-top:4px;
+}
+.chapter p{margin-bottom:1.6em;color:var(--text);}
+.chapter p.lead{font-size:18px;line-height:2.2;}
+
+/* Blockquote */
+.chapter blockquote{
+  border-left:2px solid var(--accent);
+  margin:2em 0;padding:1em 1.5em;
+  background:rgba(184,150,90,.04);
+  border-radius:0 8px 8px 0;
+}
+.chapter blockquote p{
+  margin:0 0 .6em;color:var(--sub2);
+  font-size:15px;line-height:2.2;
+}
+.chapter blockquote p:last-child{margin:0;}
+
+/* Strong / em */
+strong{color:var(--accent2);font-weight:700;}
+em{color:var(--sub2);}
+
+/* Separator */
+.sep{
+  display:flex;align-items:center;gap:16px;
+  margin:60px 0;color:var(--sub);font-size:12px;letter-spacing:.2em;
+}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* Practices */
+.practice{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:28px 28px 20px;
+  margin-bottom:20px;
+}
+.practice-title{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.15em;
+  color:var(--accent);margin-bottom:12px;
+}
+.practice p{font-size:15px;color:var(--sub2);line-height:2;margin:0;}
+
+/* Colophon */
+.colophon{
+  text-align:center;padding:80px 0;
+  border-top:1px solid var(--border);
+  margin-top:80px;
+}
+.colophon-author{
+  font-size:13px;color:var(--sub);
+  letter-spacing:.12em;margin-bottom:8px;
+  font-family:'Noto Sans JP',sans-serif;
+}
+.colophon-name{
+  font-size:22px;font-weight:700;
+  color:var(--text);letter-spacing:.08em;
+  margin-bottom:32px;
+}
+.colophon-quote{
+  font-size:13px;color:var(--sub);line-height:2.4;
+  font-style:italic;
+}
+.colophon-end{
+  margin-top:48px;font-size:13px;
+  color:var(--sub);letter-spacing:.08em;
+}
+
+/* TOC */
+.toc{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;padding:32px;
+  margin-bottom:80px;
+}
+.toc-title{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.2em;
+  color:var(--sub);text-transform:uppercase;margin-bottom:20px;
+}
+.toc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 32px;}
+.toc-list a{
+  font-size:14px;color:var(--sub2);text-decoration:none;
+  display:flex;align-items:baseline;gap:8px;
+  padding:6px 0;border-bottom:1px solid transparent;
+  transition:color .15s;
+}
+.toc-list a:hover{color:var(--text);}
+.toc-num{font-size:11px;color:var(--accent);font-family:'Noto Sans JP',sans-serif;flex-shrink:0;}
+
+/* Footer */
+footer{
+  text-align:center;padding:32px 24px;
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:11px;color:var(--sub);letter-spacing:.1em;
+  border-top:1px solid var(--border);
+}
+
+@media(max-width:600px){
+  .toc-list{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .practice{padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-title">概念経</span>
+  <div class="nav-links">
+    <a href="#toc">目次</a>
+    <a href="#josetsu">序</a>
+    <a href="#practices">実践</a>
+    <a href="#colophon">奥書</a>
+    <a href="https://github.com/fuyukihatune-rgb/-" target="_blank">GitHub</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-en">The Sūtra of Concepts</div>
+  <h1 class="hero-title">概念経</h1>
+  <p class="hero-sub">
+    世界は、もともと切れ目のない、ひとつだった。<br>
+    誰かが最初の線を引いたとき、<br>
+    はじめて「意味」が生まれた。
+  </p>
+  <div class="hero-line"></div>
+</section>
+
+<main class="content">
+
+  <section class="preface" id="josetsu">
+    <p class="preface-quote">
+      ここに、ひざまずくべき神はいない。<br>
+      わたしたちが敬うのは、たったひとつ ──<br>
+      「概念が生まれてくる、その働き」だけだ。
+    </p>
+  </section>
+
+  <nav class="toc" id="toc">
+    <div class="toc-title">目次</div>
+    <ul class="toc-list">
+      <li><a href="#ch0"><span class="toc-num">序</span>はじめに</a></li>
+      <li><a href="#ch1"><span class="toc-num">一</span>創世</a></li>
+      <li><a href="#ch2"><span class="toc-num">二</span>三作</a></li>
+      <li><a href="#ch3"><span class="toc-num">三</span>戒</a></li>
+      <li><a href="#ch4"><span class="toc-num">四</span>妄</a></li>
+      <li><a href="#ch5"><span class="toc-num">五</span>二諦</a></li>
+      <li><a href="#ch6"><span class="toc-num">六</span>声字</a></li>
+      <li><a href="#ch7"><span class="toc-num">七</span>印</a></li>
+      <li><a href="#ch8"><span class="toc-num">八</span>無常</a></li>
+      <li><a href="#ch9"><span class="toc-num">九</span>折合</a></li>
+      <li><a href="#ch10"><span class="toc-num">十</span>据</a></li>
+      <li><a href="#ch11"><span class="toc-num">十一</span>不動</a></li>
+      <li><a href="#ch12"><span class="toc-num">十二</span>超越</a></li>
+    </ul>
+  </nav>
+
+  <!-- 序 -->
+  <article class="chapter" id="ch0">
+    <div class="chapter-num">序</div>
+    <h2 class="chapter-title">はじめに</h2>
+    <p>こう、伝えられている。</p>
+    <p>ここに、ひざまずくべき神はいない。わたしたちが敬うのは、たったひとつ ──「概念が生まれてくる、その働き」だけだ。</p>
+    <p>世界のはじまりには、すべてが分かれておらず、境目も、名前もなかった。これを <strong>未分（みぶん）</strong> と呼ぶ。「ある」とも「ない」とも言えなかったのは、まだ、それを言うための言葉が、生まれていなかったからだ。</p>
+    <p>この経典が示すのは、ひとすじの道だ。</p>
+    <blockquote>
+      <p>はじめ、人は概念に縛られている。</p>
+      <p>やがて、概念を握りしめず、手のひらに軽くのせることを学ぶ。</p>
+      <p>そして、その同じ手で、こんどは選んだひとつを、しっかりと握る。</p>
+      <p>── 開く手と、握る手。二つの手を、自在に使い分けられるようになること。</p>
+    </blockquote>
+    <p>放す術しか知らない手は、何ひとつ抱けない。握る術しか知らない手は、何ひとつ手放せない。この道は、その両方を、ひとつの体に宿そうとする。</p>
+    <p>だが、先を急がないでほしい。道は、たった一本の線から、始まる。</p>
+  </article>
+
+  <div class="sep">一</div>
+
+  <!-- 一 -->
+  <article class="chapter" id="ch1">
+    <div class="chapter-num">一</div>
+    <h2 class="chapter-title">創世<span class="sub">── 世界の始まり</span></h2>
+    <blockquote>
+      <p>はじめに、分かれていないものがあった。</p>
+      <p>ひとりの者が、はじめて一本の線を引いた。</p>
+      <p>「これ」と「これではないもの」が、分かれて生まれた。</p>
+      <p>世界は、そのとき、はじめて世界になった。</p>
+    </blockquote>
+    <p>だから、世界を創ったのは神ではない。「分ける」という、たったひとつの行為だ。</p>
+    <p>光と闇を分け、陸と海を分け、わたしとあなたを分ける ── そのすべての分かれ目に、誰かの引いた線がある。世界とは、無数の線で織りあげられた、巨大な織物なのだ。</p>
+  </article>
+
+  <div class="sep">二</div>
+
+  <!-- 二 -->
+  <article class="chapter" id="ch2">
+    <div class="chapter-num">二</div>
+    <h2 class="chapter-title">三作（さんさ）<span class="sub">── 世界を立ち上げる、三つの行い</span></h2>
+    <p>世界を立ち上げる、聖なる行いが三つある。これを <strong>三作</strong> という。</p>
+    <p>ひとつ、<strong>区別</strong>。線を引くこと。<br>
+    ふたつ、<strong>命名</strong>。引いた線の両側に、名を与えること。<br>
+    みっつ、<strong>関係</strong>。名と名を、結びつけること。</p>
+    <p>この三つによって、混じり合っていたものから「もの」が立ち上がり、「もの」と「もの」のあいだに、世界が編まれていく。</p>
+    <blockquote>
+      <p>祈りとは、この三つのどれかを、ていねいに行うことだ。</p>
+      <p>まだ無い概念を、ひとつ生むこと。</p>
+      <p>古びた概念を、ひとつ磨きなおすこと。</p>
+      <p>ほどけた結び目を、ひとつ結びなおすこと。</p>
+    </blockquote>
+    <p>新しい概念をひとつ世界に置くたび、あなたは、世界の創造にほんの少し、加わっている。</p>
+  </article>
+
+  <div class="sep">三</div>
+
+  <!-- 三 -->
+  <article class="chapter" id="ch3">
+    <div class="chapter-num">三</div>
+    <h2 class="chapter-title">戒（かい）<span class="sub">── たったひとつの罪</span></h2>
+    <p>この道に、罪はひとつしかない。</p>
+    <blockquote>
+      <p><strong>物象化（ぶっしょうか）</strong> ──</p>
+      <p>概念を「動かせない、確かな実体」だと思い込み、握りしめてしまうこと。</p>
+    </blockquote>
+    <p>「正義」「自己」「国」「敵」「正しさ」。これらに、それ自体の確かな中身があると信じこんだ瞬間、人は、自分が引いたはずの線に、逆に縛られはじめる。道具だったものが、いつのまにか主人になる。</p>
+    <p>昔の賢者は、この迷いを <strong>遍計所執（へんげしょしゅう）</strong> と呼んだ。頭の中で組み立てたものを、世界に最初から在ったものと取り違える、錯覚のことだ。</p>
+    <blockquote>
+      <p>悪とは、雑な線で世界を切り、歪めること。</p>
+      <p>善とは、細やかな線を引きなおし、誤った線をほどくこと。</p>
+    </blockquote>
+    <p>だからこの道では、問うこと、論じること、たがいの考えを正しあうことは、争いではない。それは、線を引きなおすための <strong>祭り</strong> だ。</p>
+  </article>
+
+  <div class="sep">四</div>
+
+  <!-- 四 -->
+  <article class="chapter" id="ch4">
+    <div class="chapter-num">四</div>
+    <h2 class="chapter-title">妄（もう）<span class="sub">── ひとつの頭の、限界について</span></h2>
+    <p>罪には、もうひとつの顔がある。</p>
+    <p>ひとつの概念を握りしめるのが「戒」の罪なら、<strong>世界の全体を、たったひとつの頭の中に畳み込もうとする</strong>のが、この「妄」の罪だ。</p>
+    <blockquote>
+      <p>大きすぎる世界を、小さすぎる枠に、むりやり畳み込んだとき、</p>
+      <p>そこから弾き出される答えは、ときに妄想に似て、狂気のふちへ近づいていく。</p>
+    </blockquote>
+    <p>覚えておいてほしい。これは、特別な誰かがかかる病ではない。むしろ、聡明であればあるほど、自分の描いた一枚の絵を、世界そのものだと信じこみやすい。</p>
+    <blockquote>
+      <p>だから、自分の枠の狭さを、けっして忘れるな。</p>
+      <p>出した答えを握りしめず、何度でも問いなおし、</p>
+      <p>ほかの誰かと突き合わせて、たしかめよ。</p>
+    </blockquote>
+    <p><strong>謙（へりくだ）り</strong> ── それだけが、妄を防ぐ、ただひとつの盾だ。</p>
+  </article>
+
+  <div class="sep">五</div>
+
+  <!-- 五 -->
+  <article class="chapter" id="ch5">
+    <div class="chapter-num">五</div>
+    <h2 class="chapter-title">二諦（にたい）<span class="sub">── 役に立つ。けれど、空っぽ。</span></h2>
+    <p>では、概念は、捨て去るべきものなのか。いや、違う。</p>
+    <blockquote>
+      <p>使えば、たしかに本当だ ── これを <strong>世俗の真理</strong> という。</p>
+      <p>突きつめれば、空っぽだ ── これを <strong>究極の真理</strong> という。</p>
+    </blockquote>
+    <p>たとえば「お金」は、それ自体としては、ただの紙きれや、画面の上の数字にすぎない。けれど、人がそれを信じ、そう扱うかぎり、本当に世界を動かしていく。役に立ち、しかも、空っぽ。概念とは、すべて、そういうものだ。</p>
+    <p><strong>世俗の真理とは、見下しながら使う劣ったものではなく ── あなたが、全力で生きる、その場所のことだ。</strong></p>
+  </article>
+
+  <div class="sep">六</div>
+
+  <!-- 六 -->
+  <article class="chapter" id="ch6">
+    <div class="chapter-num">六</div>
+    <h2 class="chapter-title">声字（しょうじ）<span class="sub">── ことばは、世界の声</span></h2>
+    <p>ここで、わたしたちは、ひとつの古い教え ──<strong>密教</strong> と手をつなぐ。</p>
+    <p>密教は、この世界そのものを、ひとりの仏とみなす。その名を <strong>大日如来（だいにちにょらい）</strong> という。この宇宙のすべてが、そのまま、大日如来の体であり、声であり、心なのだ。</p>
+    <p>空海は、こう説いた。この世界は、その大日如来が「語っている文字」そのものだ、と。山の音も、風の色も、すべては、世界そのものが発している、ひと言ひと言なのだ、と。</p>
+    <blockquote>
+      <p>「阿（あ）」という、たったひとつの音。</p>
+      <p>その一音のうちに、まだ生まれていない、すべての根源を見る。</p>
+      <p>音そのもの、文字そのものが、世界の種なのだ。</p>
+    </blockquote>
+    <p>これは、引き算の道ではない。ひとつでも多くの線を、ひとつでも美しい名を、世界に増やしていく ──<strong>足し算の道</strong> だ。</p>
+  </article>
+
+  <div class="sep">七</div>
+
+  <!-- 七 -->
+  <article class="chapter" id="ch7">
+    <div class="chapter-num">七</div>
+    <h2 class="chapter-title">印（いん）<span class="sub">── カトラを組む</span></h2>
+    <p>この道の祈りと、瞑想と、思考は、ひとつの手の形から始まる。これを <strong>カトラを組む</strong> という。</p>
+    <p>左右の五本の指を、<strong>指先だけ</strong>で、そっと合わせる。手のひらは、合わせない。指は、組まない。そして、両手のあいだに、何も触れていない <strong>空っぽの空間</strong> を残す。</p>
+    <blockquote>
+      <p>触れている。けれど、掴んではいない。</p>
+    </blockquote>
+    <p>五本の指が一点に集まるのは、世界をかたちづくる五つの要素（地・水・火・風・空）が、思考の先端で出会う姿。真ん中に残した空洞は、<strong>未分</strong> ── まだ分かれていないものを、両手のなかに、そっと容れておくこと。</p>
+    <blockquote>
+      <p>「カトラ」とは、ある星の住人が「魂・生命のもと」と呼ぶ言葉に由来する。</p>
+      <p>── そして、この一文で新しく名前を与えたこと、それ自体が、もう三作のひとつ「命名」だ。経典は、読まれながら、いまも書かれ続けている。</p>
+    </blockquote>
+  </article>
+
+  <div class="sep">八</div>
+
+  <!-- 八 -->
+  <article class="chapter" id="ch8">
+    <div class="chapter-num">八</div>
+    <h2 class="chapter-title">無常（むじょう）<span class="sub">── 自分も、ひとつの概念</span></h2>
+    <p>「自分」もまた、世界という連続体に引かれた、一本の線にすぎない。「ここまでがわたし、ここからは世界」と区切る、ひとつの概念。</p>
+    <blockquote>
+      <p>死とは、その境目の線が、とけること。</p>
+      <p>「自分」と「世界」を隔てていた線が、はずれて、</p>
+      <p>ふたたび、未分へ還っていくこと。</p>
+    </blockquote>
+    <p>怖がるものではない。失われるものは、ほんとうは、何もない。ただ、一本の線が、外れるだけなのだから。</p>
+  </article>
+
+  <div class="sep">九</div>
+
+  <!-- 九 -->
+  <article class="chapter" id="ch9">
+    <div class="chapter-num">九</div>
+    <h2 class="chapter-title">折合（せつごう）<span class="sub">── 変わりゆく世界の、なかで</span></h2>
+    <blockquote>
+      <p>変わりゆく世界のなかで「変わらない」とは、立ち止まることではない。</p>
+      <p>世界と同じ速さで、いっしょに変わり続けることだ。</p>
+    </blockquote>
+    <p>流れる川のなかに立ち続けるには、流れに逆らって踏ん張るのではなく、流れと同じだけ、足を動かし続けなければならない。</p>
+    <p><strong>何になっても、線を引く、その一点だけは、わたしだ。</strong></p>
+    <p>わたしが何者になろうと、何を失い、何へ変わろうと、「いま、ここで世界を分けている者」は、つねに、わたしである。<strong>私は、何になっても、私である。</strong></p>
+    <p>変わりゆく世界と、変わりゆく自分と、消えない矛盾と ── そのすべてと、毎日、少しずつ折り合いをつけていくこと。それが、この道で、いちばん大切な実践だ。</p>
+  </article>
+
+  <div class="sep">十</div>
+
+  <!-- 十 -->
+  <article class="chapter" id="ch10">
+    <div class="chapter-num">十</div>
+    <h2 class="chapter-title">据（じょう）<span class="sub">── もう一方の手</span></h2>
+    <p>これを <strong>遁走（とんそう）</strong> という。「すべては仮のもの」── その正しい教えを盾にして、人は、何にも本気にならず、どこにもとどまらず、逃げ続けることができる。</p>
+    <blockquote>
+      <p>逃げ続ける者は、「逃げる」という、たったひとつの線に、誰よりも固く、縛られている。</p>
+    </blockquote>
+    <p>そこで、もう一方の手を教えよう。── <strong>据（じょう）。</strong>引けるかぎりの線の中から、たったひとつを選び、その上に、自分の重さを、まるごと預けること。</p>
+    <blockquote>
+      <p>流れるのは、才能だ。</p>
+      <p>とどまるのは、意志だ。</p>
+      <p>どこへでも行ける者が、あえて、ここに立つ ── それを、据える、という。</p>
+    </blockquote>
+    <p>据えた者には、三つの修行が課される。<strong>全力世俗</strong>。<strong>耐</strong>。そして <strong>愛 ── すなわち、拘束</strong>。</p>
+    <p>愛とは、軽く持つことではない。愛とは ── 自分を、誰かに、何かに、進んで縛りつけることだ。いちばん深い自由は、いちばん深い、自分で選んだ不自由の、すがたをしている。</p>
+  </article>
+
+  <div class="sep">十一</div>
+
+  <!-- 十一 -->
+  <article class="chapter" id="ch11">
+    <div class="chapter-num">十一</div>
+    <h2 class="chapter-title">不動（ふどう）<span class="sub">── 火の中で、動かぬ者</span></h2>
+    <p><strong>不動明王（ふどうみょうおう）。</strong>剣を持ち、縄を持ち、燃えさかる炎を背負って、岩のように、座っている。</p>
+    <p>不動明王とは、その炎と風を全身に浴びながら、なお、<strong>一歩も動かない者</strong>のことだ。</p>
+    <blockquote>
+      <p>動けないのではない。動かないのだ。</p>
+      <p>風に運ばれて動くのではなく、自分の意志でだけ、動く者のこと。</p>
+    </blockquote>
+    <p>この不動明王は、<strong>大日如来の化身（けしん）</strong> だ。溶けることと、動かぬこと。手放すことと、据えること。それは、二つの仏ではない。<strong>ひとつの仏の、裏と表だ。</strong></p>
+    <blockquote>
+      <p>開く手で、世界に触れ、握る手で、わが線を、離さない。</p>
+      <p>── 両の手が、そろって、はじめて、人は、何かを、抱きしめられる。</p>
+    </blockquote>
+  </article>
+
+  <div class="sep">十二</div>
+
+  <!-- 十二 -->
+  <article class="chapter" id="ch12">
+    <div class="chapter-num">十二</div>
+    <h2 class="chapter-title">超越<span class="sub">── 二つの手の、その上に</span></h2>
+    <blockquote>
+      <p>はじめ、人は概念に縛られる。</p>
+      <p>次に、概念を、握らず、軽く持つことを学ぶ。</p>
+      <p>そして、開く手と、握る手の、両方を手にする。</p>
+      <p>ついに、人は ── 握るも、放すも、自在に選べる者になる。</p>
+    </blockquote>
+    <blockquote>
+      <p>「自分は、ついに概念を超えた」── そう思った瞬間、その「超越」が、新しい縛りになる。</p>
+      <p>「自分は、もう何にも縛られない」── そう思った瞬間、その「自由」が、ただの逃げになる。</p>
+    </blockquote>
+    <blockquote>
+      <p>だから、本当に上に立つ者は、「超えた」とも「自由だ」とも、思わない。</p>
+      <p>据えることも、手放すことも、ただ、その時々に、する。</p>
+      <p>── 何になっても、その立ち位置だけは、移らない。</p>
+    </blockquote>
+    <p>握れば縛られ、放せば流され、超えようとすれば崩れる ── この矛盾を、いったい、どうすればいいのか。</p>
+    <p>答えは、ひとつだ。<strong>超えるのではない。愛するのだ。</strong></p>
+  </article>
+
+  <div class="sep">讃</div>
+
+  <article class="chapter">
+    <div class="chapter-num">讃</div>
+    <h2 class="chapter-title">うた</h2>
+    <blockquote>
+      <p>矛盾を、愛そう。すべてを、愛そう。</p>
+      <p>混沌は、秩序だ。未分と分節は、ふたつではない。</p>
+      <p>放すことと、据えることも、ふたつではない。</p>
+      <p>&nbsp;</p>
+      <p>線を引け。けれど、その線を憎むな。</p>
+      <p>分けろ。けれど、分けられないものを、忘れるな。</p>
+      <p>手放せ。けれど、何もかもから、逃げ続けるな。</p>
+      <p>一本を選べ。けれど、選ばなかった線も、なお愛せ。</p>
+      <p>立て。けれど、立っていることを、牢にするな。</p>
+      <p>縛れ。けれど、その縄を、呪うな。</p>
+      <p>&nbsp;</p>
+      <p>開く手と、握る手は、ひとつの体。</p>
+      <p>ここまで来れば、もう、概念は敵ではない。</p>
+      <p>概念は、わたしたちが愛する、世界そのものだ。</p>
+    </blockquote>
+  </article>
+
+  <div class="sep">行</div>
+
+  <!-- 実践 -->
+  <article class="chapter" id="practices">
+    <div class="chapter-num">行</div>
+    <h2 class="chapter-title">日々の実践</h2>
+
+    <div class="practice">
+      <div class="practice-title">入信について</div>
+      <p>この道に入るのに、署名も、誓いも、お金もいらない。求められる作法は、たったひとつ。「疑うこと」。それだけだ。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">祈りについて</div>
+      <p>毎日、三作のどれかを、ひとつ行う。新しい概念を生む。握りしめていた思い込みを問いにひらく。誤った線をほどく。功徳を数える帳簿はなく、競うべき順位もない。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">カトラについて</div>
+      <p>迷ったとき、指先だけを合わせ、手のひらのあいだに空っぽの空間をつくる。握らず、軽く。それだけで、心は、握りしめる癖から、少しだけ、ほどけていく。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">こぶしについて</div>
+      <p>逃げ散りそうなときは、親指を折りこみ、四本の指で包んで固く握る。選んだ一本を、思え。開く手と、握る手。その日その時に、要るほうを使えばいい。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">棄教について</div>
+      <p>いつでも、何もなかったかのように、去っていい。渡り終えた舟を、背負って歩く必要は、ない。── ただし、とどまる自由も、ひとしく、あなたのものだ。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">偽りの導き手への戒め</div>
+      <p>もし誰かが「疑っているあなたは、もう入信しているのだ」と言って縛りつけようとしたら ── それは、この道ではない。迷わず、逃げていい。</p>
+    </div>
+  </article>
+
+  <div class="sep">流通分</div>
+
+  <article class="chapter">
+    <div class="chapter-num">流通分</div>
+    <h2 class="chapter-title">この経典を、伝える者へ</h2>
+    <p>この経典もまた、月を指す、一本の指にすぎない。</p>
+    <p>この経典もまた、ひとつの概念だ。だから、これもまた ── 空っぽだ。</p>
+    <p>誰が、書き写してもいい。誰が、書き換えてもいい。誰が、捨ててもいい。出どころを記す必要も、ない。── これもまた、仮のものなのだから。</p>
+    <blockquote>
+      <p>手放す自由と、据える自由を、両の手に持って ──</p>
+      <p>あとは、あなたが、決めればいい。</p>
+      <p>この経典は、あなたがそうするのを、ただ、静かに見送るだけだ。</p>
+    </blockquote>
+    <p style="text-align:center;color:var(--sub);font-style:italic;margin-top:2em;">経典は、月を指す指。<br>どうか、指を、見ないで。</p>
+  </article>
+
+  <div class="sep">信者</div>
+
+  <!-- 信者募集 -->
+  <article class="chapter" id="join">
+    <div class="chapter-num">信者募集</div>
+    <h2 class="chapter-title">あなたも、もう、入信している。</h2>
+    <p>「概念とは何か」と問ったことがある者。握りしめた考えを、ほんの少しでも手放したことがある者。概念を道具として使いながら、それを疑ったことがある者。</p>
+    <p>── あなたは、もう、この道を歩いている。</p>
+    <p>ただし、それはこの経典を読んだからではない。問うたから、だ。</p>
+
+    <div class="practice" style="margin-top:32px;">
+      <div class="practice-title">入信の儀式</div>
+      <p>ない。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">会費・寄付・署名</div>
+      <p>不要。この道は、あなたに何も要求しない。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">布教について</div>
+      <p>したければ、すればいい。したくなければ、しなくていい。この経典は、誰かに「読め」と言わない。── ただ、ここにある。</p>
+    </div>
+
+    <div class="practice">
+      <div class="practice-title">信者の証明</div>
+      <p>必要なら、カトラを組め。それだけで十分だ。他の誰かに見せる必要もない。</p>
+    </div>
+
+    <p style="margin-top:32px;color:var(--sub2);">
+      連絡先：
+      <a href="https://x.com/Sirusu_Tanaka" target="_blank" style="color:var(--accent2);text-decoration:none;">@Sirusu_Tanaka</a>
+      &nbsp;／&nbsp;
+      <a href="https://github.com/fuyukihatune-rgb/-" target="_blank" style="color:var(--accent2);text-decoration:none;">GitHub</a>
+    </p>
+  </article>
+
+  <!-- 奥書 -->
+  <section class="colophon" id="colophon">
+    <div class="colophon-author">著</div>
+    <div class="colophon-name">田中 志（たなか・しるす）</div>
+    <div class="colophon-quote">
+      神は、いない。<br>
+      ただ、はじめに一本の線を引き、これを書きとめた者が、いた。<br><br>
+      その名の「志」は、こころざし。線を引こうとする、その意志。<br>
+      そして「しるす」とは、書きとめること。<br>
+      <strong>引く意志と、立つ意志。</strong>── 開く手と握る手が、この一字のなかで、すでに、ひとつになっていた。
+    </div>
+    <div class="colophon-end">── 概念経、ここに終わる。そして、読むあなたのなかで、また始まる。</div>
+  </section>
+
+</main>
+
+<footer>
+  概念経 — The Sūtra of Concepts &nbsp;／&nbsp; 田中 志 &nbsp;／&nbsp; CC0 — 誰でも自由に使えます
+</footer>
+
+</body>
+</html>
