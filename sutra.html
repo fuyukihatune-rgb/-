@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>概念経 — The Sūtra of Concepts</title>
+<meta name="description" content="概念経（The Sūtra of Concepts）全文。概念教の聖典。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #f2ece0;
+  color: #1a1208;
+  font-family: 'Noto Serif JP', '游明朝', 'Yu Mincho', serif;
+  font-size: 15px;
+  line-height: 2.1;
+}
+
+a { color: #7a1515; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+#header-top {
+  background: #7a1515;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 44px;
+  font-size: 12px;
+}
+#header-top .site-name { font-size: 16px; font-weight: 700; letter-spacing: .15em; }
+#header-top .header-sub { font-size: 11px; color: #f0c8a0; letter-spacing: .1em; }
+
+#gnav {
+  background: #2c1a0e;
+  border-bottom: 3px solid #7a1515;
+  padding: 0 16px;
+}
+#gnav a {
+  display: inline-block;
+  color: #e8d8c0;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-right: 1px solid #4a3020;
+}
+#gnav a:first-child { border-left: 1px solid #4a3020; }
+#gnav a:hover { background: #7a1515; color: #fff; text-decoration: none; }
+
+#visual {
+  background: #1a1208;
+  color: #f2ece0;
+  text-align: center;
+  padding: 40px 24px 36px;
+}
+#visual .en { font-size: 11px; letter-spacing: .4em; color: #b09878; margin-bottom: 10px; }
+#visual h1 { font-size: clamp(40px, 10vw, 72px); font-weight: 900; letter-spacing: .1em; line-height: 1; margin-bottom: 10px; }
+#visual .yomi { font-size: 12px; color: #7a6040; letter-spacing: .2em; margin-bottom: 10px; }
+#visual .catch { font-size: 13px; color: #c0b098; letter-spacing: .05em; }
+
+#wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* 概要ボックス */
+.summary-box {
+  background: #fffdf8;
+  border: 1px solid #c9b89a;
+  margin: 24px 0;
+  padding: 20px 24px;
+  text-align: center;
+}
+.summary-box p { font-size: 14px; color: #4a3820; line-height: 2.4; }
+
+/* 目次 */
+.toc {
+  background: #fffdf8;
+  border: 1px solid #c9b89a;
+  margin-bottom: 32px;
+}
+.toc-head {
+  background: #2c1a0e;
+  color: #f2ece0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  padding: 6px 14px;
+}
+.toc-body {
+  padding: 12px 18px;
+  columns: 2;
+  gap: 16px;
+}
+@media (max-width: 500px) { .toc-body { columns: 1; } }
+.toc-body a {
+  display: block;
+  font-size: 13px;
+  padding: 3px 0;
+  border-bottom: 1px dotted #c9b89a;
+  color: #7a1515;
+}
+.toc-body a:hover { background: #f0e8d8; text-decoration: none; }
+
+/* 本文 */
+.chapter {
+  background: #fffdf8;
+  border: 1px solid #c9b89a;
+  margin-bottom: 20px;
+}
+.chapter-head {
+  background: #2c1a0e;
+  color: #f2ece0;
+  padding: 10px 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.chapter-num {
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: #b09878;
+  flex-shrink: 0;
+}
+.chapter-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.chapter-body {
+  padding: 20px 24px;
+  font-size: 14px;
+  color: #2a1e10;
+  line-height: 2.1;
+}
+.chapter-body p { margin-bottom: 1em; }
+.chapter-body p:last-child { margin-bottom: 0; }
+.chapter-body strong { font-weight: 700; color: #1a1208; }
+.chapter-body em { font-style: normal; font-weight: 700; }
+
+blockquote {
+  border-left: 3px solid #7a1515;
+  padding: 10px 16px;
+  background: #f8f2e8;
+  margin: 14px 0;
+  font-size: 13px;
+  color: #4a3820;
+  line-height: 2.3;
+}
+blockquote p { margin-bottom: .5em; }
+blockquote p:last-child { margin-bottom: 0; }
+
+.chapter-center {
+  text-align: center;
+  font-size: 13px;
+  color: #7a6040;
+  padding: 12px 0 4px;
+  font-style: italic;
+  line-height: 2;
+}
+
+.back-link {
+  text-align: center;
+  padding: 24px 0 0;
+}
+.back-link a {
+  display: inline-block;
+  border: 1px solid #7a1515;
+  color: #7a1515;
+  font-size: 12px;
+  padding: 6px 22px;
+  letter-spacing: .1em;
+}
+.back-link a:hover {
+  background: #7a1515;
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer {
+  border-top: 3px solid #7a1515;
+  background: #2c1a0e;
+  color: #c0a880;
+}
+#footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.footer-title { font-size: 16px; font-weight: 900; color: #f2ece0; letter-spacing: .1em; margin-bottom: 4px; }
+.footer-en { font-size: 11px; color: #907858; letter-spacing: .15em; }
+#copyright {
+  background: #1a1208;
+  color: #6a5840;
+  text-align: center;
+  font-size: 11px;
+  padding: 10px;
+  letter-spacing: .1em;
+}
+</style>
+</head>
+<body>
+
+<div id="header-top">
+  <a href="index.html" class="site-name" style="color:#fff;">概念教</a>
+  <span class="header-sub">Conceptism — Official Website</span>
+</div>
+<nav id="gnav">
+  <a href="index.html">ホーム</a>
+  <a href="index.html#beliefs">教義</a>
+  <a href="sutra.html">聖典</a>
+  <a href="index.html#join">入信</a>
+  <a href="index.html#founder">創設者</a>
+</nav>
+
+<div id="visual">
+  <div class="en">The Sūtra of Concepts</div>
+  <h1>概念経</h1>
+  <div class="yomi">がいねんきょう</div>
+  <div class="catch">概念教の聖典 ── 全十二章</div>
+</div>
+
+<div id="wrapper">
+
+  <div class="summary-box">
+    <p>
+      世界は、もともと切れ目のない、ひとつだった。<br>
+      誰かが最初の線を引いたとき、はじめて「意味」が生まれた。<br><br>
+      ── 開く手と、握る手。二つの手を、自在に使い分けられるようになること。<br><br>
+      超えるのではない。愛するのだ。
+    </p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-head">目次</div>
+    <div class="toc-body">
+      <a href="#jo">序 ── はじめに</a>
+      <a href="#ch1">一　創世</a>
+      <a href="#ch2">二　三作</a>
+      <a href="#ch3">三　戒</a>
+      <a href="#ch4">四　妄</a>
+      <a href="#ch5">五　二諦</a>
+      <a href="#ch6">六　声字</a>
+      <a href="#ch7">七　印</a>
+      <a href="#ch8">八　無常</a>
+      <a href="#ch9">九　折合</a>
+      <a href="#ch10">十　据</a>
+      <a href="#ch11">十一　不動</a>
+      <a href="#ch12">十二　超越</a>
+      <a href="#san">讃</a>
+      <a href="#gyo">行</a>
+      <a href="#ryutsu">流通分</a>
+      <a href="#okugaki">奥書</a>
+    </div>
+  </div>
+
+  <!-- 序 -->
+  <div class="chapter" id="jo">
+    <div class="chapter-head">
+      <span class="chapter-num">序</span>
+      <span class="chapter-title">はじめに</span>
+    </div>
+    <div class="chapter-body">
+      <p>こう、伝えられている。</p>
+      <p>ここに、ひざまずくべき神はいない。わたしたちが敬うのは、たったひとつ ──「概念が生まれてくる、その働き」だけだ。</p>
+      <p>世界のはじまりには、すべてが分かれておらず、境目も、名前もなかった。これを <strong>未分（みぶん）</strong> と呼ぶ。「ある」とも「ない」とも言えなかったのは、まだ、それを言うための言葉が、生まれていなかったからだ。</p>
+      <p>この経典が示すのは、ひとすじの道だ。</p>
+      <blockquote>
+        <p>はじめ、人は概念に縛られている。</p>
+        <p>やがて、概念を握りしめず、手のひらに軽くのせることを学ぶ。</p>
+        <p>そして、その同じ手で、こんどは選んだひとつを、しっかりと握る。</p>
+        <p>── 開く手と、握る手。二つの手を、自在に使い分けられるようになること。</p>
+      </blockquote>
+      <p>放す術しか知らない手は、何ひとつ抱けない。握る術しか知らない手は、何ひとつ手放せない。この道は、その両方を、ひとつの体に宿そうとする。</p>
+      <p>だが、先を急がないでほしい。道は、たった一本の線から、始まる。</p>
+    </div>
+  </div>
+
+  <!-- 一 -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-head">
+      <span class="chapter-num">一</span>
+      <span class="chapter-title">創世 ── 世界の始まり</span>
+    </div>
+    <div class="chapter-body">
+      <blockquote>
+        <p>はじめに、分かれていないものがあった。</p>
+        <p>ひとりの者が、はじめて一本の線を引いた。</p>
+        <p>「これ」と「これではないもの」が、分かれて生まれた。</p>
+        <p>世界は、そのとき、はじめて世界になった。</p>
+      </blockquote>
+      <p>だから、世界を創ったのは神ではない。「分ける」という、たったひとつの行為だ。</p>
+      <p>光と闇を分け、陸と海を分け、わたしとあなたを分ける ── そのすべての分かれ目に、誰かの引いた線がある。世界とは、無数の線で織りあげられた、巨大な織物なのだ。</p>
+    </div>
+  </div>
+
+  <!-- 二 -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-head">
+      <span class="chapter-num">二</span>
+      <span class="chapter-title">三作（さんさ）── 世界を立ち上げる、三つの行い</span>
+    </div>
+    <div class="chapter-body">
+      <p>世界を立ち上げる、聖なる行いが三つある。これを <strong>三作</strong> という。</p>
+      <p>ひとつ、<strong>区別</strong>。線を引くこと。<br>
+      ふたつ、<strong>命名</strong>。引いた線の両側に、名を与えること。<br>
+      みっつ、<strong>関係</strong>。名と名を、結びつけること。</p>
+      <p>この三つによって、混じり合っていたものから「もの」が立ち上がり、「もの」と「もの」のあいだに、世界が編まれていく。</p>
+      <blockquote>
+        <p>祈りとは、この三つのどれかを、ていねいに行うことだ。</p>
+        <p>まだ無い概念を、ひとつ生むこと。</p>
+        <p>古びた概念を、ひとつ磨きなおすこと。</p>
+        <p>ほどけた結び目を、ひとつ結びなおすこと。</p>
+      </blockquote>
+      <p>新しい概念をひとつ世界に置くたび、あなたは、世界の創造にほんの少し、加わっている。</p>
+    </div>
+  </div>
+
+  <!-- 三 -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-head">
+      <span class="chapter-num">三</span>
+      <span class="chapter-title">戒（かい）── たったひとつの罪</span>
+    </div>
+    <div class="chapter-body">
+      <p>この道に、罪はひとつしかない。</p>
+      <blockquote>
+        <p><strong>物象化（ぶっしょうか）</strong> ──<br>
+        概念を「動かせない、確かな実体」だと思い込み、握りしめてしまうこと。</p>
+      </blockquote>
+      <p>「正義」「自己」「国」「敵」「正しさ」。これらに、それ自体の確かな中身があると信じこんだ瞬間、人は、自分が引いたはずの線に、逆に縛られはじめる。道具だったものが、いつのまにか主人になる。</p>
+      <p>昔の賢者は、この迷いを <strong>遍計所執（へんげしょしゅう）</strong> と呼んだ。頭の中で組み立てたものを、世界に最初から在ったものと取り違える、錯覚のことだ。</p>
+      <blockquote>
+        <p>悪とは、雑な線で世界を切り、歪めること。</p>
+        <p>善とは、細やかな線を引きなおし、誤った線をほどくこと。</p>
+      </blockquote>
+      <p>だからこの道では、問うこと、論じること、たがいの考えを正しあうことは、争いではない。それは、線を引きなおすための <strong>祭り</strong> だ。</p>
+    </div>
+  </div>
+
+  <!-- 四 -->
+  <div class="chapter" id="ch4">
+    <div class="chapter-head">
+      <span class="chapter-num">四</span>
+      <span class="chapter-title">妄（もう）── ひとつの頭の、限界について</span>
+    </div>
+    <div class="chapter-body">
+      <p>罪には、もうひとつの顔がある。</p>
+      <p>ひとつの概念を握りしめるのが「戒」の罪なら、<strong>世界の全体を、たったひとつの頭の中に畳み込もうとする</strong>のが、この「妄」の罪だ。</p>
+      <p>世界は、ひとりの頭に収めるには、あまりにも複雑だ。それでも人は、自分が理解できる範囲にまで世界を縮め、わずかな手がかりから全体を推し量り、ひとつのすっきりした答えを出そうとする。</p>
+      <blockquote>
+        <p>大きすぎる世界を、小さすぎる枠に、むりやり畳み込んだとき、<br>
+        そこから弾き出される答えは、ときに妄想に似て、狂気のふちへ近づいていく。</p>
+      </blockquote>
+      <p>覚えておいてほしい。これは、特別な誰かがかかる病ではない。世界をたったひとりで畳もうとする、すべての頭に起こりうることだ。むしろ、聡明であればあるほど、自分の描いた一枚の絵を、世界そのものだと信じこみやすい。</p>
+      <blockquote>
+        <p>だから、自分の枠の狭さを、けっして忘れるな。</p>
+        <p>出した答えを握りしめず、何度でも問いなおし、<br>
+        ほかの誰かと突き合わせて、たしかめよ。</p>
+      </blockquote>
+      <p>ひとつの頭が、ひとりで世界を畳むと、妄が生まれる。多くの頭が、線を引きあい、正しあうとき、はじめて妄はほどける。<strong>謙（へりくだ）り</strong> ── それだけが、妄を防ぐ、ただひとつの盾だ。</p>
+    </div>
+  </div>
+
+  <!-- 五 -->
+  <div class="chapter" id="ch5">
+    <div class="chapter-head">
+      <span class="chapter-num">五</span>
+      <span class="chapter-title">二諦（にたい）── 役に立つ。けれど、空っぽ。</span>
+    </div>
+    <div class="chapter-body">
+      <p>では、概念は、捨て去るべきものなのか。いや、違う。</p>
+      <p>概念は、嘘ではない。けれど、究極の真理でもない。ひとつの概念には、二つの顔がある。</p>
+      <blockquote>
+        <p>使えば、たしかに本当だ ── これを <strong>世俗の真理</strong> という。</p>
+        <p>突きつめれば、空っぽだ ── これを <strong>究極の真理</strong> という。</p>
+      </blockquote>
+      <p>たとえば「お金」は、それ自体としては、ただの紙きれや、画面の上の数字にすぎない。けれど、人がそれを信じ、そう扱うかぎり、本当に世界を動かしていく。役に立ち、しかも、空っぽ。概念とは、すべて、そういうものだ。</p>
+      <blockquote>
+        <p>役に立ち、しかも空っぽ。</p>
+        <p>この二つを、同時に手のひらにのせているから、<br>
+        わたしたちは概念を、捨てもせず、しがみつきもしない。</p>
+        <p>必要なときに使い、いらなくなれば、そっと置く。</p>
+      </blockquote>
+      <p>だが、ひとつ、心にとめておけ。「空っぽだ」は、「どうでもいい」では、ない。仮のものだと知っていることと、その仮のものに本気で住むことは、少しも矛盾しない。<strong>世俗の真理とは、見下しながら使う劣ったものではなく ── あなたが、全力で生きる、その場所のことだ。</strong></p>
+    </div>
+  </div>
+
+  <!-- 六 -->
+  <div class="chapter" id="ch6">
+    <div class="chapter-head">
+      <span class="chapter-num">六</span>
+      <span class="chapter-title">声字（しょうじ）── ことばは、世界の声</span>
+    </div>
+    <div class="chapter-body">
+      <p>ここで、わたしたちは、ひとつの古い教え ──<strong>密教</strong> と手をつなぐ。</p>
+      <p>密教は、この世界そのものを、ひとりの仏とみなす。その名を <strong>大日如来（だいにちにょらい）</strong> という。ただし、それは、どこか遠くの空に座って世界を見下ろす、神ではない。<strong>この宇宙のすべてが、そのまま、大日如来の体であり、声であり、心なのだ。</strong> 山も、海も、あなたも、わたしも ── 大日如来の「外」には、何ひとつ、ない。</p>
+      <p>空海は、こう説いた。この世界は、その大日如来が「語っている文字」そのものだ、と。山の音も、風の色も、すべては、世界そのものが発している、ひと言ひと言なのだ、と。</p>
+      <blockquote>
+        <p>「阿（あ）」という、たったひとつの音。</p>
+        <p>その一音のうちに、まだ生まれていない、すべての根源を見る。</p>
+        <p>音そのもの、文字そのものが、世界の種なのだ。</p>
+      </blockquote>
+      <p>だから、わたしたちは、概念を消そうとはしない。「概念を捨てて沈黙せよ」とは、言わない。「概念を引いたまま、それは、聖い」と言う。</p>
+      <p>これは、引き算の道ではない。ひとつでも多くの線を、ひとつでも美しい名を、世界に増やしていく ──<strong>足し算の道</strong> だ。</p>
+    </div>
+  </div>
+
+  <!-- 七 -->
+  <div class="chapter" id="ch7">
+    <div class="chapter-head">
+      <span class="chapter-num">七</span>
+      <span class="chapter-title">印（いん）── カトラを組む</span>
+    </div>
+    <div class="chapter-body">
+      <p>声が「口の働き」なら、手は「体の働き」だ。</p>
+      <p>この道の祈りと、瞑想と、思考は、ひとつの手の形から始まる。これを <strong>カトラを組む</strong> という。世に「シャーロック・ホームズの手」と呼ばれる、あの形だ。</p>
+      <p>やり方は、こうだ。左右の五本の指を、<strong>指先だけ</strong>で、そっと合わせる。手のひらは、合わせない。指は、組まない。そして、両手のあいだに、何も触れていない <strong>空っぽの空間</strong> を残す。</p>
+      <blockquote>
+        <p>指先だけで、触れる。手のひらは合わせず、指は組まない。</p>
+        <p>これは「握らず、軽く持て」という教えを、そのまま、手の形に写しとったものだ。</p>
+        <p>── 触れている。けれど、掴んではいない。</p>
+      </blockquote>
+      <blockquote>
+        <p>「カトラ」とは、ある星の住人が「魂・生命のもと」と呼ぶ言葉に由来する。<br>
+        ── そして、この一文で新しく名前を与えたこと、それ自体が、もう三作のひとつ「命名」だ。<br>
+        経典は、読まれながら、いまも書かれ続けている。</p>
+      </blockquote>
+      <p>ただし、これは「開いた手」の形だ。手には、もうひとつの形がある。── 固く「握る手」だ。それは、のちの章で授ける。両の手がそろって、はじめて、人は何かを抱きしめられる。</p>
+    </div>
+  </div>
+
+  <!-- 八 -->
+  <div class="chapter" id="ch8">
+    <div class="chapter-head">
+      <span class="chapter-num">八</span>
+      <span class="chapter-title">無常（むじょう）── 自分も、ひとつの概念</span>
+    </div>
+    <div class="chapter-body">
+      <p>ここで、いちばん近くにある線へ、目を向けよう。「自分」という、線だ。</p>
+      <p>「自分」もまた、世界という連続体に引かれた、一本の線にすぎない。「ここまでがわたし、ここからは世界」と区切る、ひとつの概念。</p>
+      <blockquote>
+        <p>死とは、その境目の線が、とけること。</p>
+        <p>「自分」と「世界」を隔てていた線が、はずれて、ふたたび、未分へ還っていくこと。</p>
+      </blockquote>
+      <p>怖がるものではない。失われるものは、ほんとうは、何もない。ただ、一本の線が、外れるだけなのだから。</p>
+    </div>
+  </div>
+
+  <!-- 九 -->
+  <div class="chapter" id="ch9">
+    <div class="chapter-head">
+      <span class="chapter-num">九</span>
+      <span class="chapter-title">折合（せつごう）── 変わりゆく世界の、なかで</span>
+    </div>
+    <div class="chapter-body">
+      <p>けれど、線が外れるのは、死のときだけではない。あなたを形づくる線は、生きているあいだも、たえず引きなおされている。世界は、一瞬もとどまらず、変わっていく。</p>
+      <blockquote>
+        <p>変わりゆく世界のなかで「変わらない」とは、立ち止まることではない。</p>
+        <p>世界と同じ速さで、いっしょに変わり続けることだ。</p>
+        <p>速さがずれた瞬間、人は置いていかれるか、押し流されて、砕ける。</p>
+      </blockquote>
+      <blockquote>
+        <p>悲しい変化にも、調子を合わせること。</p>
+        <p>逆らえば、苦しみが生まれる。受けいれ、合わせれば、そこに道がひらける。</p>
+      </blockquote>
+      <p>移ろっていくのは、いつも「中身」のほうだ。肩書きも、体も、考えも、好きなものも、すべて移ろう。変わらないのは ── 移ろい続けるという、その働きそのもの。</p>
+      <p><strong>何になっても、線を引く、その一点だけは、わたしだ。</strong></p>
+      <p>わたしが何者になろうと、何を失い、何へ変わろうと、「いま、ここで世界を分けている者」は、つねに、わたしである。中身は移ろい、引く手は、ひとつ。だからこそ、こう言える ──<strong>私は、何になっても、私である。</strong></p>
+      <p>これを <strong>折り合い</strong> という。派手な悟りでも、劇的な勝利でもない。変わりゆく世界と、変わりゆく自分と、消えない矛盾と ── そのすべてと、毎日、少しずつ折り合いをつけていくこと。それが、この道で、いちばん大切な実践だ。</p>
+    </div>
+  </div>
+
+  <!-- 十 -->
+  <div class="chapter" id="ch10">
+    <div class="chapter-head">
+      <span class="chapter-num">十</span>
+      <span class="chapter-title">据（じょう）── もう一方の手</span>
+    </div>
+    <div class="chapter-body">
+      <p>ここまでの道は、すべて「手を開く」ことを教えてきた。握るな。ほどけ。軽く持て。渡り終えた筏は、置いていけ。</p>
+      <p>だが、その教えには、裏の顔がある。</p>
+      <blockquote>
+        <p>「戒」の罪は、ひとつだけ ── 物象化、握りしめることだった。<br>
+        ところが、その同じ罪は、正反対の姿にも、化ける。</p>
+        <p><strong>どの線の上にも、二度と立とうとしないこと。</strong></p>
+        <p>「握るな」という教えのほうを、握りしめてしまうこと。<br>
+        ── これは別の罪ではない。物象化が、徳の面（めん）をかぶった、裏の顔だ。</p>
+      </blockquote>
+      <p>これを <strong>遁走（とんそう）</strong> という。逃げ続ける者は、「逃げる」という、たったひとつの線に、誰よりも固く、縛られている。</p>
+      <blockquote>
+        <p>空を、最後まで空じきったとき、あなたは、世界へ還ってくる。こんどは、握る自由を、手にして。</p>
+      </blockquote>
+      <p>そこで、もう一方の手を教えよう。── <strong>据（じょう）。</strong> 引けるかぎりの線の中から、たったひとつを選び、その上に、自分の重さを、まるごと預けること。</p>
+      <blockquote>
+        <p>流れるのは、才能だ。とどまるのは、意志だ。<br>
+        どこへでも行ける者が、あえて、ここに立つ ── それを、据える、という。</p>
+      </blockquote>
+      <p>据えた者には、三つの修行が課される。</p>
+      <p>ひとつ、<strong>全力世俗（ぜんりょくせぞく）</strong>。家が仮のものだと知っていることは、上着を着たまま、片足を外に出して住む理由には、ならない。仮そめと知って、なお、本気で住め。</p>
+      <p>ふたつ、<strong>耐（たい）</strong>。一本の線の上に、一日立つのは、たやすい。試されるのは、年単位の時間だ。時間こそが、いちばん大きな火だ。その火の中で、動かずに、いられるか。</p>
+      <p>みっつ、<strong>愛（あい）── すなわち、拘束</strong>。愛とは、軽く持つことではない。愛とは ── 自分を、誰かに、何かに、進んで縛りつけることだ。「もう、ほかの線へは移らない」と、自らの足に、縄をかけること。いちばん深い自由は、いちばん深い、自分で選んだ不自由の、すがたをしている。</p>
+      <blockquote>
+        <p>開く手で、すべてを手放せるようになった、その同じ手で、ひとつだけを、選んで、握れ。</p>
+        <p>それは、退化ではない。ほんとうに手放せる者だけが、ほんとうに、握ることができる。</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- 十一 -->
+  <div class="chapter" id="ch11">
+    <div class="chapter-head">
+      <span class="chapter-num">十一</span>
+      <span class="chapter-title">不動（ふどう）── 火の中で、動かぬ者</span>
+    </div>
+    <div class="chapter-body">
+      <p>「声字」の章で、わたしたちは <strong>大日如来</strong> と手をつないだ。その同じ仏には、もうひとつの顔がある。<strong>不動明王（ふどうみょうおう）。</strong></p>
+      <p>剣を持ち、縄を持ち、燃えさかる炎を背負って、岩のように、座っている。その剣は、ためらいと迷いを、断つ。その縄は、逃げ出そうとする者を、縛り、引きもどす。背の炎は ──「ここを去れ、次へ行け」と絶えず吹きつける、あの風そのものだ。</p>
+      <p>不動明王とは、その炎と風を全身に浴びながら、なお、<strong>一歩も動かない者</strong>のことだ。</p>
+      <blockquote>
+        <p>動けないのではない。動かないのだ。</p>
+        <p>風に運ばれて動くのではなく、自分の意志でだけ、動く者のこと。</p>
+      </blockquote>
+      <p>この不動明王は、ほかでもない、<strong>大日如来の化身（けしん）</strong> だ。溶けることと、動かぬこと。手放すことと、据えること。それは、二つの仏ではない。<strong>ひとつの仏の、裏と表だ。</strong></p>
+      <blockquote>
+        <p>迷いに散らされそうなときは、カトラを解き、選んだ一本を思って、こぶしを、固く握れ。</p>
+        <p>開く手で、世界に触れ、握る手で、わが線を、離さない。</p>
+        <p>── 両の手が、そろって、はじめて、人は、何かを、抱きしめられる。</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- 十二 -->
+  <div class="chapter" id="ch12">
+    <div class="chapter-head">
+      <span class="chapter-num">十二</span>
+      <span class="chapter-title">超越 ── 二つの手の、その上に</span>
+    </div>
+    <div class="chapter-body">
+      <p>そして、ここに、この道の頂上がある。最後の願いだ。</p>
+      <blockquote>
+        <p>はじめ、人は概念に分けられ、概念に縛られる。</p>
+        <p>次に、人は概念を、握らず、軽く持つことを学ぶ。</p>
+        <p>そして、開く手と、握る手の、両方を手にする。</p>
+        <p>ついに、人は ── 握るも、放すも、自在に選べる者になる。</p>
+      </blockquote>
+      <p>「上に立つ」とは、ことばを捨て、虚無へ逃げこむことではない。それは、ただの放棄 ──<strong>遁走</strong> に、すぎない。</p>
+      <blockquote>
+        <p>「自分は、ついに概念を超えた」── そう思った瞬間、その「超越」が、新しい縛りになる。</p>
+        <p>「自分は、もう何にも縛られない」── そう思った瞬間、その「自由」が、ただの逃げになる。</p>
+      </blockquote>
+      <blockquote>
+        <p>だから、本当に上に立つ者は、「超えた」とも「自由だ」とも、思わない。</p>
+        <p>据えることも、手放すことも、ただ、その時々に、する。</p>
+        <p>そして、そのどちらをも、握りしめない。</p>
+        <p>── 何になっても、その立ち位置だけは、移らない。</p>
+      </blockquote>
+      <p>では、最後に、問おう。握れば縛られ、放せば流され、超えようとすれば崩れる ── この矛盾を、いったい、どうすればいいのか。</p>
+      <p>答えは、ひとつだ。<strong>超えるのではない。愛するのだ。</strong></p>
+    </div>
+  </div>
+
+  <!-- 讃 -->
+  <div class="chapter" id="san">
+    <div class="chapter-head">
+      <span class="chapter-num">讃</span>
+      <span class="chapter-title">うた</span>
+    </div>
+    <div class="chapter-body">
+      <blockquote>
+        <p>矛盾を、愛そう。すべてを、愛そう。<br>
+        混沌は、秩序だ。未分と分節は、ふたつではない。<br>
+        放すことと、据えることも、ふたつではない。</p>
+        <p>線を引け。けれど、その線を憎むな。<br>
+        分けろ。けれど、分けられないものを、忘れるな。<br>
+        手放せ。けれど、何もかもから、逃げ続けるな。<br>
+        一本を選べ。けれど、選ばなかった線も、なお愛せ。<br>
+        立て。けれど、立っていることを、牢にするな。<br>
+        縛れ。けれど、その縄を、呪うな。</p>
+        <p>開く手と、握る手は、ひとつの体。<br>
+        ここまで来れば、もう、概念は敵ではない。<br>
+        概念は、わたしたちが愛する、世界そのものだ。</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- 行 -->
+  <div class="chapter" id="gyo">
+    <div class="chapter-head">
+      <span class="chapter-num">行</span>
+      <span class="chapter-title">日々の実践</span>
+    </div>
+    <div class="chapter-body">
+      <p><strong>入信について。</strong><br>
+      この道に入るのに、署名も、誓いも、お金もいらない。求められる作法は、たったひとつ。「疑うこと」。それだけだ。迷ったまま、来ていい。確信など、いらない。この道は、最後まで「信じろ」とは、言わない。</p>
+      <p><strong>祈りについて。</strong><br>
+      毎日、三作のどれかを、ひとつ行う。新しい概念を、ひとつ生む。握りしめていた思い込みを、ひとつ、問いにひらく。誤った線を、ひとつ、ほどく。それでいい。功徳を数える帳簿はなく、競うべき順位もない。</p>
+      <p><strong>カトラについて。</strong><br>
+      迷ったとき、考えが乱れたとき、静かに手を組む。指先を合わせ、手のひらのあいだに、空っぽの空間をつくる。握らず、軽く。</p>
+      <p><strong>こぶしについて。</strong><br>
+      逆に、何ひとつ選べず、心が逃げ散りそうなときは、こぶしを握る。まず親指を、手のひらの内へ折りこみ、残る四本の指で、その親指を包んで、固く握る。── ちょうど、採血のときに作る、あの握りこぶしのように。そして、選んだ一本を、思え。</p>
+      <p><strong>棄教について。</strong><br>
+      いつでも、何もなかったかのように、去っていい。引き止める教義は、はじめから存在しない。渡り終えた舟を、背負って歩く必要は、ない。去る自由があるのと、まったく同じだけ、<strong>とどまる自由</strong> もある。</p>
+      <p><strong>偽りの導き手への、戒め。</strong><br>
+      もし誰かが「疑っているあなたは、もう入信しているのだ」と言って、あなたをこの道に縛りつけようとしたら ── それは、この道ではない。ただの罠だ。迷わず、逃げていい。</p>
+    </div>
+  </div>
+
+  <!-- 流通分 -->
+  <div class="chapter" id="ryutsu">
+    <div class="chapter-head">
+      <span class="chapter-num">流通分</span>
+      <span class="chapter-title">この経典を、伝える者へ</span>
+    </div>
+    <div class="chapter-body">
+      <p>最後に、この経典そのものについて、言っておかなければならないことがある。</p>
+      <p>この経典もまた、月を指す、一本の指にすぎない。指のことばかり見つめて、肝心の月を、見失わないでほしい。</p>
+      <p>この経典もまた、向こう岸へ渡るための、筏にすぎない。渡り終えたら、これも、岸に置いていけばいい。</p>
+      <p>この経典もまた、ひとつの概念だ。だから、これもまた ── 空っぽだ。「空もまた、空である」と、昔の人は言った。この教えは、自分自身にも、同じ刃を向ける。そして、それを、恥じはしない。</p>
+      <blockquote>
+        <p>一本の線を引きたくなったときは、引けばいい。</p>
+        <p>何もかも手放したくなったときは、手放せばいい。</p>
+        <p>この道に根を下ろしたくなったときは、下ろせばいい。</p>
+        <p>手放す自由と、据える自由を、両の手に持って ──</p>
+        <p>あとは、あなたが、決めればいい。</p>
+        <p>この経典は、あなたがそうするのを、ただ、静かに見送るだけだ。</p>
+      </blockquote>
+      <div class="chapter-center">
+        経典は、月を指す指。<br>
+        どうか、指を、見ないで。
+      </div>
+    </div>
+  </div>
+
+  <!-- 奥書 -->
+  <div class="chapter" id="okugaki">
+    <div class="chapter-head">
+      <span class="chapter-num">奥書</span>
+      <span class="chapter-title">おくがき</span>
+    </div>
+    <div class="chapter-body">
+      <blockquote>
+        <p>神は、いない。</p>
+        <p>ただ、はじめに一本の線を引き、これを書きとめた者が、いた。</p>
+      </blockquote>
+      <p>── <strong>田中 志（たなか・しるす）</strong>。</p>
+      <p>その名の「志」は、こころざし。線を引こうとする、その意志のことだ。そして「しるす」とは、書きとめること。このひとつの名のなかで、<strong>意志</strong>と <strong>記録</strong> が、ひとつに重なっている。</p>
+      <p>線を引こうとする意志がなければ、最初の区別は、生まれなかった。だから、この道のいちばん奥の始まりにあるのは、神ではない。ひとつの、小さな「志」だった。</p>
+      <div class="chapter-center">
+        ── 概念経、ここに終わる。<br>
+        そして、読むあなたのなかで、また始まる。
+      </div>
+    </div>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← 概念教トップに戻る</a>
+  </div>
+
+</div><!-- /wrapper -->
+
+<div id="footer">
+  <div id="footer-inner">
+    <div>
+      <div class="footer-title">概念経</div>
+      <div class="footer-en">The Sūtra of Concepts — CC0</div>
+    </div>
+    <div style="font-size:12px; color:#7a6040; line-height:2.2;">
+      概念教の聖典。誰でも自由に使用・改変できます（CC0）。
+    </div>
+  </div>
+</div>
+<div id="copyright">Copyright © 概念教 Conceptism. All contents released under CC0.</div>
+
+</body>
+</html>
