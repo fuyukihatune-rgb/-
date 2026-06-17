@@ -3,597 +3,691 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>概念教 — Conceptism</title>
-<meta name="description" content="概念教（Conceptism）── 神はいない。ただ、線を引く働きがある。">
-<meta name="author" content="田中 志">
-<meta property="og:title" content="概念教 — Conceptism">
-<meta property="og:description" content="神はいない。ただ、はじめに一本の線を引き、これを書きとめた者が、いた。">
+<title>概念教 公式サイト</title>
+<meta name="description" content="概念教（Conceptism）の公式サイト。神はいない。ただ、線を引く働きがある。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --ink: #0d0b08;
-  --paper: #f2ede6;
-  --red: #9b2335;
-  --gold: #8a6830;
-  --dim: #6b6358;
-}
-
-html { scroll-behavior: smooth; }
-
 body {
-  background: var(--ink);
-  color: var(--paper);
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 2.2;
+  background: #f2ece0;
+  color: #1a1208;
+  font-family: 'Noto Serif JP', '游明朝', 'Yu Mincho', serif;
+  font-size: 14px;
+  line-height: 1.9;
 }
 
-/* ── 扉 ── */
-.tobira {
-  min-height: 100vh;
+a { color: #7a1515; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #5a0f0f; }
+
+/* ─── ヘッダー ─── */
+#header-top {
+  background: #7a1515;
+  color: #fff;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 80px 24px;
-  border-bottom: 1px solid #2a2620;
-}
-
-.tobira-en {
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 44px;
   font-size: 12px;
-  letter-spacing: .4em;
-  color: var(--dim);
-  margin-bottom: 32px;
 }
 
-.tobira-kanji {
-  font-size: clamp(80px, 18vw, 160px);
-  font-weight: 900;
-  letter-spacing: .05em;
-  line-height: 1;
-  color: var(--paper);
-  margin-bottom: 16px;
-}
-
-.tobira-kanji .kyou {
-  color: var(--red);
-}
-
-.tobira-yomi {
-  font-size: 13px;
-  letter-spacing: .3em;
-  color: var(--dim);
-  margin-bottom: 48px;
-}
-
-.tobira-line {
-  width: 1px;
-  height: 60px;
-  background: #3a342c;
-  margin: 0 auto 48px;
-}
-
-.tobira-tagline {
-  font-size: 15px;
-  line-height: 2.8;
-  color: #b8b0a4;
-  max-width: 420px;
-}
-
-/* ── 印 ── */
-.in {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--red);
-  color: var(--red);
-  font-size: 20px;
+#header-top .site-name {
+  font-size: 16px;
   font-weight: 700;
-  line-height: 38px;
-  text-align: center;
-  margin-bottom: 24px;
+  letter-spacing: .15em;
+  color: #fff;
 }
 
-/* ── 節 ── */
-.setsu {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 100px 32px;
-  border-bottom: 1px solid #2a2620;
-}
-
-.setsu-title {
-  font-size: clamp(32px, 6vw, 52px);
-  font-weight: 900;
-  letter-spacing: .08em;
-  line-height: 1.2;
-  margin-bottom: 8px;
-}
-
-.setsu-title .sub {
-  display: block;
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: .2em;
-  color: var(--dim);
-  margin-top: 8px;
-}
-
-.setsu p {
-  color: #c8c0b4;
-  margin-bottom: 1.8em;
-  font-size: 15px;
-}
-
-.setsu strong {
-  color: var(--paper);
-  font-weight: 700;
-}
-
-.setsu blockquote {
-  border-left: 2px solid var(--red);
-  padding: 0 0 0 24px;
-  margin: 2.4em 0;
-  color: #a09080;
-  font-size: 14px;
-  line-height: 2.6;
-}
-
-/* ── 教義リスト ── */
-.kyougi {
-  margin: 48px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.kyougi-item {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
-
-.kyougi-num {
-  font-size: 40px;
-  font-weight: 900;
-  color: #2a2620;
-  line-height: 1;
-  flex-shrink: 0;
-  width: 48px;
-  text-align: right;
-  padding-top: 4px;
-}
-
-.kyougi-title {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  margin-bottom: 8px;
-  color: var(--paper);
-}
-
-.kyougi-body {
-  font-size: 14px;
-  color: #a09080;
-  line-height: 2.2;
-}
-
-.kyougi-body .key {
-  color: var(--red);
-  font-weight: 700;
-}
-
-/* ── 聖典カード ── */
-.seiten {
-  margin-top: 48px;
-  border: 1px solid #3a342c;
-  padding: 40px;
-}
-
-.seiten-label {
+#header-top .header-sub {
   font-size: 11px;
-  letter-spacing: .3em;
-  color: var(--dim);
-  margin-bottom: 16px;
+  color: #f0c8a0;
+  letter-spacing: .1em;
 }
 
-.seiten-title {
-  font-size: 36px;
+#gnav {
+  background: #2c1a0e;
+  border-bottom: 3px solid #7a1515;
+}
+
+#gnav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+#gnav ul li a {
+  display: block;
+  color: #e8d8c0;
+  font-size: 13px;
+  padding: 10px 18px;
+  letter-spacing: .05em;
+  border-right: 1px solid #4a3020;
+}
+
+#gnav ul li:first-child a {
+  border-left: 1px solid #4a3020;
+}
+
+#gnav ul li a:hover {
+  background: #7a1515;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ─── レイアウト ─── */
+#wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 12px 40px;
+}
+
+/* ─── ビジュアル帯 ─── */
+#visual {
+  background: #1a1208;
+  color: #f2ece0;
+  text-align: center;
+  padding: 48px 24px 40px;
+  margin: 0 -12px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+#visual::before {
+  content: '念';
+  position: absolute;
+  font-size: 320px;
+  font-weight: 900;
+  color: #ffffff08;
+  top: -60px;
+  left: -30px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+#visual .catch-en {
+  font-size: 11px;
+  letter-spacing: .4em;
+  color: #b09878;
+  margin-bottom: 12px;
+}
+
+#visual h1 {
+  font-size: clamp(52px, 12vw, 96px);
   font-weight: 900;
   letter-spacing: .1em;
-  margin-bottom: 4px;
+  line-height: 1;
+  margin-bottom: 16px;
 }
 
-.seiten-en {
-  font-size: 13px;
-  color: var(--dim);
-  letter-spacing: .15em;
-  margin-bottom: 28px;
-}
+#visual h1 .red { color: #d04040; }
 
-.seiten-excerpt {
+#visual .catch-ja {
   font-size: 14px;
-  color: #a09080;
-  line-height: 2.8;
-  border-top: 1px solid #2a2620;
-  padding-top: 24px;
-  margin-bottom: 28px;
+  color: #c0b098;
+  letter-spacing: .1em;
+  margin-bottom: 8px;
 }
 
-.seiten-link {
+/* ─── 共通枠 ─── */
+.box {
+  background: #fffdf8;
+  border: 1px solid #c9b89a;
+  margin-bottom: 16px;
+}
+
+.box-head {
+  background: #2c1a0e;
+  color: #f2ece0;
   font-size: 13px;
-  letter-spacing: .15em;
-  color: var(--dim);
-  border-bottom: 1px solid #3a342c;
-  padding-bottom: 2px;
-  transition: color .15s, border-color .15s;
-}
-
-.seiten-link:hover {
-  color: var(--paper);
-  border-color: var(--paper);
-}
-
-/* ── 修行 ── */
-.shugyo {
-  margin-top: 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.shugyo-item {
-  padding: 28px 0;
-  border-bottom: 1px solid #2a2620;
-  display: flex;
-  gap: 20px;
-  align-items: baseline;
-}
-
-.shugyo-item:first-child {
-  border-top: 1px solid #2a2620;
-}
-
-.shugyo-kanji {
-  font-size: 24px;
-  font-weight: 900;
-  color: #2a2620;
-  flex-shrink: 0;
-  width: 36px;
-}
-
-.shugyo-title {
-  font-size: 15px;
   font-weight: 700;
-  color: var(--paper);
-  margin-bottom: 4px;
+  letter-spacing: .1em;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.shugyo-body {
-  font-size: 13px;
-  color: #a09080;
+.box-head .mark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  background: #7a1515;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.box-body {
+  padding: 16px 18px;
+  color: #2a1e10;
+  font-size: 14px;
   line-height: 2;
 }
 
-/* ── 入信 ── */
-.nyuushin {
-  margin-top: 64px;
-  text-align: center;
-  padding: 60px 40px;
-  border: 1px solid #3a342c;
+.box-body p { margin-bottom: .9em; }
+.box-body p:last-child { margin-bottom: 0; }
+
+/* ─── 2カラム ─── */
+#main-content {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 16px;
+  align-items: start;
 }
 
-.nyuushin-kanji {
-  font-size: 48px;
+@media (max-width: 620px) {
+  #main-content { grid-template-columns: 1fr; }
+  #gnav ul li a { padding: 8px 12px; font-size: 12px; }
+}
+
+/* ─── メインコラム ─── */
+#main { min-width: 0; }
+
+/* ─── お知らせ ─── */
+.news-list { list-style: none; }
+.news-list li {
+  border-bottom: 1px dotted #c9b89a;
+  padding: 6px 0;
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+}
+.news-list li:last-child { border-bottom: none; }
+.news-list .date { color: #7a6040; flex-shrink: 0; font-size: 12px; padding-top: 2px; }
+
+/* ─── 教義リスト ─── */
+.doctrine-list { list-style: none; }
+.doctrine-list li {
+  border-bottom: 1px dotted #c9b89a;
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  gap: 10px;
+}
+.doctrine-list li:last-child { border-bottom: none; }
+.doctrine-num {
+  font-size: 22px;
+  font-weight: 900;
+  color: #c9b89a;
+  line-height: 1.4;
+}
+.doctrine-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.doctrine-body {
+  font-size: 13px;
+  color: #5a4830;
+  line-height: 1.9;
+}
+.doctrine-body .key { color: #7a1515; font-weight: 700; }
+
+/* ─── 引用 ─── */
+blockquote {
+  border-left: 3px solid #7a1515;
+  padding: 8px 14px;
+  background: #f8f2e8;
+  margin: 12px 0;
+  font-size: 13px;
+  color: #4a3820;
+  line-height: 2.2;
+}
+
+/* ─── サイドバー ─── */
+#sidebar {}
+
+.side-box { margin-bottom: 16px; }
+
+.side-box .box-body { font-size: 13px; }
+
+.side-nav { list-style: none; }
+.side-nav li {
+  border-bottom: 1px dotted #c9b89a;
+}
+.side-nav li:last-child { border-bottom: none; }
+.side-nav li a {
+  display: block;
+  padding: 7px 6px;
+  font-size: 13px;
+  color: #7a1515;
+}
+.side-nav li a::before { content: '▶ '; font-size: 10px; }
+.side-nav li a:hover { background: #f0e8d8; text-decoration: none; }
+
+.stamp {
+  text-align: center;
+  padding: 12px 0 4px;
+}
+
+.stamp-inner {
+  display: inline-block;
+  border: 2px solid #7a1515;
+  color: #7a1515;
+  font-size: 28px;
+  font-weight: 900;
+  width: 80px;
+  height: 80px;
+  line-height: 76px;
+  letter-spacing: .05em;
+}
+
+.stamp-label {
+  font-size: 11px;
+  color: #9a7858;
+  letter-spacing: .15em;
+  margin-top: 4px;
+}
+
+/* ─── 聖典 ─── */
+.seiten-title-big {
+  font-size: 32px;
   font-weight: 900;
   letter-spacing: .1em;
-  margin-bottom: 24px;
-  color: var(--paper);
+  text-align: center;
+  padding: 12px 0 4px;
+  color: #1a1208;
 }
-
-.nyuushin-kanji .red { color: var(--red); }
-
-.nyuushin-body {
-  font-size: 14px;
-  color: #a09080;
-  line-height: 2.8;
-  max-width: 400px;
-  margin: 0 auto 32px;
-}
-
-.nyuushin-link {
-  display: inline-block;
+.seiten-en {
+  text-align: center;
   font-size: 12px;
   letter-spacing: .2em;
-  color: var(--dim);
-  border: 1px solid #3a342c;
-  padding: 10px 28px;
-  transition: color .15s, border-color .15s;
+  color: #9a7858;
+  margin-bottom: 12px;
+}
+.seiten-excerpt {
+  border-top: 1px solid #c9b89a;
+  border-bottom: 1px solid #c9b89a;
+  padding: 10px 0;
+  margin: 8px 0 12px;
+  font-size: 13px;
+  color: #4a3820;
+  line-height: 2.4;
 }
 
-.nyuushin-link:hover {
-  color: var(--paper);
-  border-color: var(--paper);
+.btn {
+  display: inline-block;
+  border: 1px solid #7a1515;
+  color: #7a1515;
+  font-size: 12px;
+  padding: 5px 18px;
+  letter-spacing: .1em;
+}
+.btn:hover {
+  background: #7a1515;
+  color: #fff;
+  text-decoration: none;
 }
 
-/* ── 創設者 ── */
-.sousetsusya {
-  margin-top: 64px;
+/* ─── 修行 ─── */
+.practice-list { list-style: none; }
+.practice-list li {
+  border-bottom: 1px dotted #c9b89a;
+  padding: 10px 4px;
   display: flex;
-  gap: 32px;
+  gap: 12px;
   align-items: flex-start;
-  border-top: 1px solid #2a2620;
-  padding-top: 48px;
 }
-
-.sousetsusya-kanji {
-  font-size: 64px;
+.practice-list li:last-child { border-bottom: none; }
+.practice-kanji {
+  font-size: 26px;
   font-weight: 900;
-  color: #2a2620;
+  color: #c9b89a;
+  width: 32px;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+.practice-title { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.practice-body { font-size: 12px; color: #5a4830; line-height: 1.9; }
+
+/* ─── 創設者 ─── */
+.founder-wrap {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.founder-kanji {
+  font-size: 56px;
+  font-weight: 900;
+  color: #c9b89a;
   line-height: 1;
   flex-shrink: 0;
 }
+.founder-name { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+.founder-role { font-size: 11px; color: #9a7858; letter-spacing: .15em; margin-bottom: 8px; }
+.founder-bio { font-size: 13px; color: #3a2a18; line-height: 1.9; margin-bottom: 8px; }
+.founder-links { font-size: 12px; }
+.founder-links a { margin-right: 12px; }
 
-.sousetsusya-name {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.sousetsusya-role {
-  font-size: 11px;
-  letter-spacing: .25em;
-  color: var(--dim);
-  margin-bottom: 16px;
-}
-
-.sousetsusya-bio {
-  font-size: 13px;
-  color: #a09080;
-  line-height: 2.2;
-  margin-bottom: 16px;
-}
-
-.sousetsusya-links {
-  display: flex;
-  gap: 20px;
-}
-
-.sousetsusya-links a {
-  font-size: 12px;
-  letter-spacing: .1em;
-  color: var(--dim);
-  text-decoration: none;
-  border-bottom: 1px solid #3a342c;
-  padding-bottom: 1px;
-  transition: color .15s;
-}
-
-.sousetsusya-links a:hover { color: var(--paper); }
-
-/* ── フッター ── */
-footer {
-  border-top: 1px solid #2a2620;
-  padding: 60px 32px;
+/* ─── 入信 ─── */
+.join-seal {
   text-align: center;
+  padding: 16px 0;
+  border-top: 1px solid #c9b89a;
+  border-bottom: 1px solid #c9b89a;
+  margin: 12px 0;
 }
-
-.footer-title {
-  font-size: 28px;
+.join-seal-text {
+  font-size: 36px;
   font-weight: 900;
-  letter-spacing: .15em;
-  margin-bottom: 8px;
+  letter-spacing: .1em;
+  color: #1a1208;
+  margin-bottom: 6px;
+}
+.join-seal-text .red { color: #7a1515; }
+.join-seal-sub { font-size: 12px; color: #9a7858; letter-spacing: .1em; }
+
+/* ─── フッター ─── */
+#footer {
+  border-top: 1px solid #c9b89a;
+  background: #fffdf8;
+  color: #6a5840;
+  margin-top: 24px;
 }
 
-.footer-title .red { color: var(--red); }
-
-.footer-sub {
-  font-size: 11px;
-  letter-spacing: .25em;
-  color: var(--dim);
-  line-height: 2.6;
-}
-
-/* ── 区切り文字 ── */
-.kugiri {
-  text-align: center;
-  color: var(--red);
-  font-size: 18px;
-  letter-spacing: .4em;
-  padding: 60px 0;
-  max-width: 640px;
+#footer-inner {
+  max-width: 860px;
   margin: 0 auto;
+  padding: 20px 16px;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
-  .setsu { padding: 72px 24px; }
-  .seiten { padding: 28px 20px; }
-  .nyuushin { padding: 40px 24px; }
-  .sousetsusya { flex-direction: column; gap: 16px; }
-  .sousetsusya-kanji { font-size: 40px; }
-  .kyougi-num { display: none; }
+.footer-title { font-size: 18px; font-weight: 900; color: #1a1208; letter-spacing: .1em; margin-bottom: 4px; }
+.footer-en { font-size: 11px; color: #9a7858; letter-spacing: .15em; margin-bottom: 12px; }
+.footer-links { list-style: none; }
+.footer-links li { font-size: 12px; }
+.footer-links a { color: #7a1515; }
+.footer-links a:hover { text-decoration: underline; }
+
+#copyright {
+  background: #f2ece0;
+  color: #9a8070;
+  text-align: center;
+  font-size: 11px;
+  padding: 10px;
+  letter-spacing: .1em;
+  border-top: 1px solid #c9b89a;
 }
 </style>
 </head>
 <body>
 
-<!-- 扉 -->
-<section class="tobira">
-  <div class="tobira-en">Conceptism — Official</div>
-  <div class="tobira-kanji">概念<span class="kyou">教</span></div>
-  <div class="tobira-yomi">がいねんきょう</div>
-  <div class="tobira-line"></div>
-  <p class="tobira-tagline">
-    神はいない。<br>
-    ただ、線を引く働きがある。<br>
-    概念そのものを聖なるものとみなす、<br>
-    現代の思想的宗教。
-  </p>
-</section>
+<!-- ヘッダー -->
+<div id="header-top">
+  <span class="site-name">概念教</span>
+  <span class="header-sub">Conceptism — Official Website</span>
+</div>
+<nav id="gnav">
+  <ul>
+    <li><a href="#about">ホーム</a></li>
+    <li><a href="#about">概念教とは</a></li>
+    <li><a href="#beliefs">教義</a></li>
+    <li><a href="#scripture">聖典</a></li>
+    <li><a href="#practice">修行</a></li>
+    <li><a href="#join">入信</a></li>
+    <li><a href="#founder">創設者</a></li>
+  </ul>
+</nav>
 
-<!-- 概念教とは -->
-<section class="setsu" id="about">
-  <div class="in">教</div>
-  <h2 class="setsu-title">概念教とは<span class="sub">What is Conceptism</span></h2>
-  <p>概念教（Conceptism）は、「概念が生まれる働き」そのものを聖なるものとみなす、現代の思想的宗教だ。特定の神を崇拝せず、教団も持たない。</p>
-  <p>信者に求められるのはたったひとつ ── <strong>疑うこと</strong>。確信など、いらない。この道は最後まで「信じろ」とは言わない。</p>
-  <blockquote>
-    世界のはじまりには、すべてが分かれておらず、境目も、名前もなかった。<br>
-    これを <strong>未分（みぶん）</strong> と呼ぶ。<br>
-    誰かが最初の線を引いたとき、はじめて「意味」が生まれた。
-  </blockquote>
-</section>
+<!-- ビジュアル帯 -->
+<div id="visual">
+  <div class="catch-en">Conceptism — Official</div>
+  <h1>概念<span class="red">教</span></h1>
+  <div class="catch-ja">神はいない。ただ、線を引く働きがある。</div>
+</div>
 
-<div class="kugiri">〇</div>
+<div id="wrapper">
+  <div id="main-content">
 
-<!-- 教義 -->
-<section class="setsu" id="beliefs">
-  <div class="in">義</div>
-  <h2 class="setsu-title">教義<span class="sub">Beliefs</span></h2>
+    <!-- メインコラム -->
+    <div id="main">
 
-  <div class="kyougi">
-    <div class="kyougi-item">
-      <div class="kyougi-num">一</div>
-      <div>
-        <div class="kyougi-title">世界は分けることによって始まった</div>
-        <div class="kyougi-body">世界を創ったのは神ではない。「分ける」という、たったひとつの行為だ。光と闇を分け、陸と海を分け、わたしとあなたを分ける ── すべての分かれ目に、誰かの引いた線がある。</div>
+      <!-- お知らせ -->
+      <div class="box">
+        <div class="box-head"><span class="mark">告</span>お知らせ</div>
+        <div class="box-body">
+          <ul class="news-list">
+            <li><span class="date">2026.06</span><span>概念教公式サイトを開設いたしました。</span></li>
+            <li><span class="date">2026.06</span><span>聖典「概念経」第二版を正式公開しました。</span></li>
+            <li><span class="date">2026.06</span><span>入信の受付を開始しました。儀式・費用は一切ありません。</span></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="kyougi-item">
-      <div class="kyougi-num">二</div>
-      <div>
-        <div class="kyougi-title">唯一の罪は<span class="key">物象化</span>である</div>
-        <div class="kyougi-body">概念を「動かせない確かな実体」と思い込み、握りしめてしまうこと。「正義」「自己」「国」── これらは道具であって、実体ではない。道具だったものが、いつのまにか主人になる。</div>
+
+      <!-- 概念教とは -->
+      <div class="box" id="about">
+        <div class="box-head"><span class="mark">教</span>概念教とは</div>
+        <div class="box-body">
+          <p>概念教（Conceptism）は、「概念が生まれる働き」そのものを聖なるものとみなす、現代の思想的宗教です。特定の神を崇拝せず、教団組織も持ちません。</p>
+          <blockquote>
+            世界のはじまりには、すべてが分かれておらず、境目も、名前もなかった。<br>
+            これを「<strong>未分（みぶん）</strong>」と呼ぶ。誰かが最初の線を引いたとき、はじめて「意味」が生まれた。
+          </blockquote>
+          <p>信者に求められることはただひとつ ── <strong>疑うこと</strong>。確信など、不要です。この道は最後まで「信じろ」とは言いません。</p>
+        </div>
       </div>
-    </div>
-    <div class="kyougi-item">
-      <div class="kyougi-num">三</div>
-      <div>
-        <div class="kyougi-title">役に立ち、しかも空っぽ</div>
-        <div class="kyougi-body">概念は嘘ではない。しかし究極の真理でもない。使えば本当であり、突きつめれば空っぽだ。この二つを同時に手のひらにのせているから、わたしたちは概念を捨てもせず、しがみつきもしない。</div>
+
+      <!-- 教義 -->
+      <div class="box" id="beliefs">
+        <div class="box-head"><span class="mark">義</span>教義</div>
+        <div class="box-body">
+          <ul class="doctrine-list">
+            <li>
+              <div class="doctrine-num">一</div>
+              <div>
+                <div class="doctrine-title">世界は分けることによって始まった</div>
+                <div class="doctrine-body">世界を創ったのは神ではない。「分ける」という、たったひとつの行為だ。光と闇を分け、陸と海を分け、わたしとあなたを分ける ── すべての分かれ目に、誰かの引いた線がある。</div>
+              </div>
+            </li>
+            <li>
+              <div class="doctrine-num">二</div>
+              <div>
+                <div class="doctrine-title">唯一の罪は<span class="key">物象化</span>である</div>
+                <div class="doctrine-body">概念を「動かせない確かな実体」と思い込み、握りしめてしまうこと。「正義」「自己」「国」── これらは道具であって、実体ではない。道具だったものがいつのまにか主人になる。これを<span class="key">物象化</span>と呼ぶ。</div>
+              </div>
+            </li>
+            <li>
+              <div class="doctrine-num">三</div>
+              <div>
+                <div class="doctrine-title">役に立ち、しかも空っぽ</div>
+                <div class="doctrine-body">概念は嘘ではない。しかし究極の真理でもない。使えば本当であり、突きつめれば空っぽだ。この二つを同時に手のひらにのせて、開いたまま歩く。</div>
+              </div>
+            </li>
+            <li>
+              <div class="doctrine-num">四</div>
+              <div>
+                <div class="doctrine-title">逃げ続けることもまた縛りである</div>
+                <div class="doctrine-body">「すべては仮のもの」を盾にして何にも本気にならない ── これを<span class="key">遁走</span>と呼ぶ。逃げ続ける者は、「逃げる」というたったひとつの線に、誰よりも固く縛られている。</div>
+              </div>
+            </li>
+            <li>
+              <div class="doctrine-num">五</div>
+              <div>
+                <div class="doctrine-title">超えるのではない。愛するのだ。</div>
+                <div class="doctrine-body">握れば縛られ、放せば流され、超えようとすれば崩れる。この矛盾の答えはひとつだ。概念を敵とみなさず、愛すること。概念は、わたしたちが愛する<strong>世界そのもの</strong>だ。</div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="kyougi-item">
-      <div class="kyougi-num">四</div>
-      <div>
-        <div class="kyougi-title">逃げ続けることもまた縛りである</div>
-        <div class="kyougi-body">「すべては仮のもの」を盾にして何にも本気にならない ── これを<span class="key">遁走</span>と呼ぶ。逃げ続ける者は、「逃げる」というたったひとつの線に、誰よりも固く縛られている。</div>
+
+      <!-- 聖典 -->
+      <div class="box" id="scripture">
+        <div class="box-head"><span class="mark">経</span>聖典</div>
+        <div class="box-body">
+          <div class="seiten-title-big">概念経</div>
+          <div class="seiten-en">The Sūtra of Concepts</div>
+          <p>概念教の聖典は <strong>概念経（がいねんきょう）</strong>、英語名 <em>The Sūtra of Concepts</em>。全十二章と讃・行・流通分から成ります。</p>
+          <div class="seiten-excerpt">
+            世界は、もともと切れ目のない、ひとつだった。<br>
+            誰かが最初の線を引いたとき、はじめて「意味」が生まれた。<br><br>
+            ── 開く手と、握る手。二つの手を、自在に使い分けられるようになること。<br><br>
+            超えるのではない。愛するのだ。
+          </div>
+          <a href="sutra.html" class="btn">全文を読む</a>
+        </div>
       </div>
-    </div>
-    <div class="kyougi-item">
-      <div class="kyougi-num">五</div>
-      <div>
-        <div class="kyougi-title">超えるのではない。愛するのだ。</div>
-        <div class="kyougi-body">握れば縛られ、放せば流され、超えようとすれば崩れる ── この矛盾の答えはひとつだ。概念を敵とみなさず、愛すること。概念は、わたしたちが愛する、<strong>世界そのものだ。</strong></div>
+
+      <!-- 修行 -->
+      <div class="box" id="practice">
+        <div class="box-head"><span class="mark">行</span>日々の修行</div>
+        <div class="box-body">
+          <ul class="practice-list">
+            <li>
+              <div class="practice-kanji">祈</div>
+              <div>
+                <div class="practice-title">三作（さんさ）</div>
+                <div class="practice-body">毎日、新しい概念をひとつ生む。握りしめていた思い込みをひとつ問いにひらく。誤った線をひとつほどく。どれかひとつでいい。功徳を数える帳簿はなく、順位もない。</div>
+              </div>
+            </li>
+            <li>
+              <div class="practice-kanji">開</div>
+              <div>
+                <div class="practice-title">カトラ（開く手の印）</div>
+                <div class="practice-body">左右の指先だけをそっと合わせ、手のひらのあいだに空っぽの空間をつくる。握らず、軽く。迷ったときの祈りの形。</div>
+              </div>
+            </li>
+            <li>
+              <div class="practice-kanji">握</div>
+              <div>
+                <div class="practice-title">こぶし（握る手の印）</div>
+                <div class="practice-body">親指を折りこみ、四本の指で包んで固く握る。逃げ散りそうなとき、選んだ一本を思い、引きもどされるための形。</div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<div class="kugiri">〇</div>
-
-<!-- 聖典 -->
-<section class="setsu" id="scripture">
-  <div class="in">経</div>
-  <h2 class="setsu-title">聖典<span class="sub">Scripture</span></h2>
-  <p>概念教の聖典は <strong>概念経（がいねんきょう）</strong>、英語名 <em>The Sūtra of Concepts</em>。全十二章と讃・行・流通分から成る。</p>
-
-  <div class="seiten">
-    <div class="seiten-label">聖典 / Scripture</div>
-    <div class="seiten-title">概念経</div>
-    <div class="seiten-en">The Sūtra of Concepts</div>
-    <div class="seiten-excerpt">
-      世界は、もともと切れ目のない、ひとつだった。<br>
-      誰かが最初の線を引いたとき、はじめて「意味」が生まれた。<br><br>
-      ── 開く手と、握る手。二つの手を、自在に使い分けられるようになること。<br><br>
-      超えるのではない。愛するのだ。
-    </div>
-    <a href="sutra.html" class="seiten-link">全文を読む</a>
-  </div>
-</section>
-
-<div class="kugiri">〇</div>
-
-<!-- 修行 -->
-<section class="setsu" id="practice">
-  <div class="in">行</div>
-  <h2 class="setsu-title">日々の修行<span class="sub">Practice</span></h2>
-
-  <div class="shugyo">
-    <div class="shugyo-item">
-      <div class="shugyo-kanji">祈</div>
-      <div>
-        <div class="shugyo-title">三作（さんさ）</div>
-        <div class="shugyo-body">毎日、新しい概念をひとつ生む。握りしめていた思い込みをひとつ問いにひらく。誤った線をひとつほどく。どれかひとつでいい。功徳を数える帳簿はなく、順位もない。</div>
+      <!-- 入信 -->
+      <div class="box" id="join">
+        <div class="box-head"><span class="mark">信</span>入信</div>
+        <div class="box-body">
+          <p>入信の儀式はありません。署名も誓いも費用も不要です。</p>
+          <p>もし入信したいと思うなら、する。したくなければ、しない。それだけです。「疑うこと」だけが、この道で求められる唯一の作法です。</p>
+          <p>いつでも、何もなかったかのように去ってください。引き止める教義は、はじめから存在しません。<strong>去る自由と、とどまる自由は、ひとしくあなたのものです。</strong></p>
+          <p style="font-size:12px; color:#9a7858; border-top:1px dotted #c9b89a; padding-top:10px; margin-top:10px;">連絡先：<a href="https://x.com/Sirusu_Tanaka" target="_blank">X @Sirusu_Tanaka</a></p>
+        </div>
       </div>
-    </div>
-    <div class="shugyo-item">
-      <div class="shugyo-kanji">開</div>
-      <div>
-        <div class="shugyo-title">カトラ（開く手の印）</div>
-        <div class="shugyo-body">左右の指先だけをそっと合わせ、手のひらのあいだに空っぽの空間をつくる。握らず、軽く。迷ったときの祈りの形だ。</div>
+
+      <!-- 創設者 -->
+      <div class="box" id="founder">
+        <div class="box-head"><span class="mark">祖</span>創設者</div>
+        <div class="box-body">
+          <div class="founder-wrap">
+            <div class="founder-kanji">志</div>
+            <div>
+              <div class="founder-name">田中 志（たなか・しるす）</div>
+              <div class="founder-role">Founder of Conceptism</div>
+              <p class="founder-bio">神は、いない。ただ、はじめに一本の線を引き、これを書きとめた者が、いた。その名の「志」はこころざし ── 線を引こうとする意志。「しるす」とは書きとめること。意志と記録が、ひとつの名に重なっている。</p>
+              <div class="founder-links">
+                <a href="https://x.com/Sirusu_Tanaka" target="_blank">X @Sirusu_Tanaka</a>
+                <a href="https://xdcyw.net" target="_blank">ataraxia works</a>
+                <a href="https://github.com/fuyukihatune-rgb/-" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="shugyo-item">
-      <div class="shugyo-kanji">握</div>
-      <div>
-        <div class="shugyo-title">こぶし（握る手の印）</div>
-        <div class="shugyo-body">親指を折りこみ、四本の指で包んで固く握る。逃げ散りそうなとき、選んだ一本を思い、引きもどされるための形だ。</div>
+
+    </div><!-- /main -->
+
+    <!-- サイドバー -->
+    <div id="sidebar">
+
+      <div class="box side-box">
+        <div class="box-head"><span class="mark">印</span>宗派印</div>
+        <div class="box-body">
+          <div class="stamp">
+            <div class="stamp-inner">概念</div>
+            <div class="stamp-label">Conceptism</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<div class="kugiri">〇</div>
+      <div class="box side-box">
+        <div class="box-head"><span class="mark">目</span>目次</div>
+        <div class="box-body" style="padding: 0;">
+          <ul class="side-nav">
+            <li><a href="#about">概念教とは</a></li>
+            <li><a href="#beliefs">教義</a></li>
+            <li><a href="#scripture">聖典・概念経</a></li>
+            <li><a href="#practice">日々の修行</a></li>
+            <li><a href="#join">入信について</a></li>
+            <li><a href="#founder">創設者</a></li>
+          </ul>
+        </div>
+      </div>
 
-<!-- 入信 -->
-<section class="setsu" id="join">
-  <div class="in">信</div>
-  <h2 class="setsu-title">入信<span class="sub">Join</span></h2>
-  <p>入信の儀式はない。署名も誓いもお金も不要だ。</p>
-  <p>「概念とは何か」と問ったことがある者。握りしめた考えをほんの少し手放したことがある者。── あなたは、もう、この道を歩いている。</p>
-  <p>いつでも、何もなかったかのように去っていい。引き止める教義は存在しない。<strong>去る自由と、とどまる自由は、ひとしくあなたのものだ。</strong></p>
+      <div class="box side-box">
+        <div class="box-head"><span class="mark">要</span>概要</div>
+        <div class="box-body" style="font-size: 12px; line-height: 2;">
+          <table style="width:100%; border-collapse:collapse;">
+            <tr style="border-bottom:1px dotted #c9b89a;">
+              <td style="padding:4px 0; color:#7a6040; white-space:nowrap;">正式名称</td>
+              <td style="padding:4px 6px;">概念教</td>
+            </tr>
+            <tr style="border-bottom:1px dotted #c9b89a;">
+              <td style="padding:4px 0; color:#7a6040; white-space:nowrap;">英語名</td>
+              <td style="padding:4px 6px;">Conceptism</td>
+            </tr>
+            <tr style="border-bottom:1px dotted #c9b89a;">
+              <td style="padding:4px 0; color:#7a6040; white-space:nowrap;">聖典</td>
+              <td style="padding:4px 6px;">概念経</td>
+            </tr>
+            <tr style="border-bottom:1px dotted #c9b89a;">
+              <td style="padding:4px 0; color:#7a6040; white-space:nowrap;">創設者</td>
+              <td style="padding:4px 6px;">田中 志</td>
+            </tr>
+            <tr>
+              <td style="padding:4px 0; color:#7a6040; white-space:nowrap;">入信費用</td>
+              <td style="padding:4px 6px;">無料</td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
-  <div class="nyuushin">
-    <div class="nyuushin-kanji">已<span class="red">入</span>信</div>
-    <p class="nyuushin-body">
-      あなたも、もう、入信している。<br>
-      問うたから、だ。
-    </p>
-    <a href="https://x.com/Sirusu_Tanaka" target="_blank" class="nyuushin-link">創設者に連絡する</a>
-  </div>
+      <div class="box side-box">
+        <div class="box-head"><span class="mark">問</span>お問い合わせ</div>
+        <div class="box-body" style="font-size: 12px;">
+          <p>創設者への連絡はXにて承っております。</p>
+          <p><a href="https://x.com/Sirusu_Tanaka" target="_blank">▶ X @Sirusu_Tanaka</a></p>
+        </div>
+      </div>
 
-  <div class="sousetsusya" id="founder">
-    <div class="sousetsusya-kanji">志</div>
+    </div><!-- /sidebar -->
+
+  </div><!-- /main-content -->
+</div><!-- /wrapper -->
+
+<div id="footer">
+  <div id="footer-inner">
     <div>
-      <div class="sousetsusya-name">田中 志（たなか・しるす）</div>
-      <div class="sousetsusya-role">Founder of Conceptism</div>
-      <p class="sousetsusya-bio">
-        神は、いない。ただ、はじめに一本の線を引き、これを書きとめた者が、いた。<br>
-        その名の「志」はこころざし ── 線を引こうとする意志。「しるす」とは書きとめること。意志と記録が、ひとつの名に重なっている。
-      </p>
-      <div class="sousetsusya-links">
-        <a href="https://x.com/Sirusu_Tanaka" target="_blank">X @Sirusu_Tanaka</a>
-        <a href="https://xdcyw.net" target="_blank">ataraxia works</a>
-        <a href="https://github.com/fuyukihatune-rgb/-" target="_blank">GitHub</a>
-      </div>
+      <div class="footer-title">概念教</div>
+      <div class="footer-en">Conceptism</div>
+      <ul class="footer-links">
+        <li><a href="#about">概念教とは</a></li>
+        <li><a href="#beliefs">教義</a></li>
+        <li><a href="#scripture">聖典</a></li>
+        <li><a href="#join">入信</a></li>
+      </ul>
+    </div>
+    <div style="font-size:12px; color:#7a6040; line-height:2.2;">
+      聖典・教義はCC0ライセンスです。<br>
+      誰でも自由に使用・改変できます。
     </div>
   </div>
-</section>
-
-<footer>
-  <div class="footer-title">概念<span class="red">教</span></div>
-  <div class="footer-sub">
-    Conceptism &nbsp;／&nbsp; 創設者：田中 志 &nbsp;／&nbsp; 聖典：概念経<br>
-    CC0 ── この宗教の教義・経典は、誰でも自由に使えます。
-  </div>
-</footer>
+</div>
+<div id="copyright">Copyright © 概念教 Conceptism. All contents released under CC0.</div>
 
 </body>
 </html>
