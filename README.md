@@ -1,7 +1,7 @@
 <div align="center">
 
 # 概念経
-**The Sūtra of Concepts**
+**Conceptism — The Sūtra of Concepts**
 
 
 世界は、もともと切れ目のない、ひとつだった。
